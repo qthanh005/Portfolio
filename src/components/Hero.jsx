@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Github, Linkedin, Mail, Download, Code2, Database, Cpu } from 'lucide-react'
+import { Github, Linkedin, Mail, Download, Code2, Database, Cpu, UserCircle2 } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../translations/translations'
+import PDFViewer from './PDFViewer'
 
 const Hero = () => {
   const { language } = useLanguage()
   const t = translations[language]
   const [textIndex, setTextIndex] = useState(0)
   const [showMain, setShowMain] = useState(false)
+  const [isPDFOpen, setIsPDFOpen] = useState(false)
 
   const initSequence = [
     t.hero.initSequence.init,
@@ -62,11 +64,11 @@ const Hero = () => {
             >
               <div className="w-64 h-64 md:w-80 md:h-80 relative">
                 {/* Decorative rings */}
-                <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-pulse"></div>
-                <div className="absolute inset-4 rounded-full border border-secondary/20"></div>
+                <div className="absolute inset-0 rounded-full border-2 border-gray-600/30 animate-pulse"></div>
+                <div className="absolute inset-4 rounded-full border border-gray-500/20"></div>
 
                 {/* Avatar image placeholder - users can replace this */}
-                <div className="absolute inset-6 rounded-full bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center overflow-hidden border-4 border-primary/50">
+                <div className="absolute inset-6 rounded-full bg-gray-800/30 flex items-center justify-center overflow-hidden border-4 border-gray-700/40">
                   <img
                     src="/images/profile.jpg"
                     alt="Le Quang Thanh"
@@ -76,8 +78,8 @@ const Hero = () => {
                       e.target.nextSibling.style.display = 'flex'
                     }}
                   />
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/30 to-primary/30" style={{display: 'none'}}>
-                    <Code2 className="w-24 h-24 text-primary" />
+                  <div className="w-full h-full flex items-center justify-center bg-gray-800/50" style={{display: 'none'}}>
+                    <UserCircle2 className="w-32 h-32 text-gray-400" strokeWidth={1.5} />
                   </div>
                 </div>
 
@@ -147,13 +149,13 @@ const Hero = () => {
                   <Mail className="w-5 h-5" />
                   {t.hero.getInTouch}
                 </a>
-                <a
-                  href="/resume.pdf"
+                <button
+                  onClick={() => setIsPDFOpen(true)}
                   className="px-6 py-3 glass-card text-gray-300 font-semibold rounded-lg hover:border-secondary transition-all duration-300 flex items-center gap-2"
                 >
                   <Download className="w-5 h-5" />
                   {t.hero.resume}
-                </a>
+                </button>
               </motion.div>
 
               {/* Social Links */}
@@ -180,6 +182,14 @@ const Hero = () => {
           </motion.div>
         )}
       </div>
+
+      {/* PDF Viewer Modal */}
+      <PDFViewer
+        isOpen={isPDFOpen}
+        onClose={() => setIsPDFOpen(false)}
+        pdfUrl="/images/CV.png"
+        fileName="CV_LeQuangThanh.png"
+      />
     </section>
   )
 }

@@ -1,7 +1,35 @@
 import { motion } from 'framer-motion'
-import { Github, ExternalLink, Code2, Video, Brain, Layers } from 'lucide-react'
+import { Github, ExternalLink, Code2, Video, Brain, Layers, Youtube } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../translations/translations'
+
+// Custom TruyenZ Icon Component
+const TruyenZIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
+  <div className={`${className} flex items-center justify-center font-extrabold ${textSize} font-mono`}>
+    <span className="text-orange-400">T</span>
+    <span className="text-green-400">r</span>
+    <span className="text-blue-400">u</span>
+    <span className="text-purple-400">y</span>
+    <span className="text-red-400">ệ</span>
+    <span className="text-emerald-400">n</span>
+    <span className="text-cyan-400">Z</span>
+  </div>
+)
+
+// Custom TinyChess Icon Component
+const TinyChessIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
+  <div className={`${className} flex items-center justify-center font-extrabold ${textSize} font-mono`}>
+    <span className="text-purple-400">T</span>
+    <span className="text-pink-400">i</span>
+    <span className="text-blue-400">n</span>
+    <span className="text-cyan-400">y</span>
+    <span className="text-indigo-400">C</span>
+    <span className="text-violet-400">h</span>
+    <span className="text-fuchsia-400">e</span>
+    <span className="text-rose-400">s</span>
+    <span className="text-purple-400">s</span>
+  </div>
+)
 
 const Projects = () => {
   const { language } = useLanguage()
@@ -11,20 +39,20 @@ const Projects = () => {
     {
       title: t.projects.projectList.webrtc.title,
       description: t.projects.projectList.webrtc.description,
-      image: '/images/projects/webrtc-conference.jpg',
-      tags: ['WebRTC', 'Socket.IO', 'Node.js', 'React', 'WebSocket'],
+      image: '/images/truyenZ.jpg',
+      tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Responsive Design'],
       github: '#',
-      demo: '#',
-      icon: Video,
+      demo: 'https://www.youtube.com/watch?v=XbJqy5R20GI',
+      icon: TruyenZIcon,
       color: 'from-blue-500 to-cyan-500'
     },
     {
       title: t.projects.projectList.ml.title,
       description: t.projects.projectList.ml.description,
-      image: '/images/projects/ml-engine.jpg',
-      tags: ['Python', 'Scikit-learn', 'Flask', 'React', 'Docker'],
+      image: 'https://www.youtube.com/embed/Yfp6Zq55slg?autoplay=1&mute=1&loop=1&playlist=Yfp6Zq55slg&controls=1&modestbranding=1&rel=0',
+      tags: ['C#', 'Unity', '3D Graphics', 'AI', 'Cross-Platform'],
       github: '#',
-      demo: '#',
+      demo: 'https://youtu.be/Yfp6Zq55slg',
       icon: Brain,
       color: 'from-purple-500 to-pink-500'
     },
@@ -51,120 +79,330 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20 px-6">
+    <section id="projects" className="py-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <motion.h2
+        {/* Header */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center font-mono"
+          className="text-center mb-6"
         >
-          <span className="text-gray-400">&gt;</span> {t.projects.title} <span className="gradient-text">{t.projects.titleHighlight}</span>
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-3 font-mono">
+            <span className="text-gray-400">&gt;</span> {t.projects.title} <span className="gradient-text">{t.projects.titleHighlight}</span>
+          </h2>
+          <div className="w-16 h-0.5 bg-primary mx-auto"></div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => {
-            const ProjectIcon = project.icon
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card rounded-lg overflow-hidden hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2 transition-all duration-500 group"
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-12 gap-3 lg:gap-4">
+          {/* Project 2 - TinyChess Hero Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0 }}
+            className="col-span-12 lg:col-span-8"
+          >
+            <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group flex flex-col">
+              {/* Video Section */}
+              <div className="relative flex-1 min-h-[350px] lg:min-h-[450px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 overflow-hidden">
+                <iframe
+                  src={projects[1].image}
+                  title={projects[1].title}
+                  className="w-full h-full border-0 group-hover:scale-105 transition-transform duration-700"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  onError={(e) => {
+                    e.target.style.display = 'none'
+                    e.target.nextSibling.style.display = 'flex'
+                  }}
+                />
+                <div
+                  className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-500/20 to-pink-500/20"
+                  style={{ display: 'none' }}
+                >
+                  <TinyChessIcon className="w-20 h-20" textSize="text-3xl" />
+                </div>
+
+                {/* Top Icon */}
+                <div className="absolute top-4 left-4">
+                  <div className="w-fit p-2 rounded-lg bg-black/30 backdrop-blur-sm">
+                    <TinyChessIcon className="w-8 h-8" textSize="text-sm" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm p-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-bold text-white mb-2 font-mono">
+                      {projects[1].title}
+                    </h3>
+                    <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+                      {projects[1].description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {projects[1].tags.slice(0, 4).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 text-xs font-mono text-purple-400 bg-purple-500/20 rounded border border-purple-500/30"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex gap-3">
+                      <a
+                        href={projects[1].github}
+                        className="flex items-center gap-2 px-3 py-2 text-sm font-mono text-white border border-white/30 rounded-lg hover:bg-white/10 transition-colors"
+                      >
+                        <Github className="w-4 h-4" />
+                        Code
+                      </a>
+                      <a
+                        href={projects[1].demo}
+                        className="flex items-center gap-2 px-3 py-2 text-sm font-mono bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:opacity-90 transition-opacity"
+                      >
+                        <Youtube className="w-4 h-4" />
+                        Demo
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Project 1 - TruyenZ Comic Website */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="col-span-12 lg:col-span-4"
+          >
+            <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group flex flex-col">
+              {/* Image Section */}
+              <div
+                className="relative flex-1 min-h-[350px] lg:min-h-[450px] bg-gradient-to-br from-blue-500/20 to-cyan-500/20 overflow-hidden"
+                style={{
+                  backgroundImage: `url(${projects[0].image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center 30%',
+                  backgroundRepeat: 'no-repeat'
+                }}
               >
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-secondary/20 to-primary/20">
+                {/* Fallback for when image fails to load */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center opacity-0 group-[.image-error]:opacity-100">
+                  <TruyenZIcon className="w-20 h-20" textSize="text-3xl" />
+                </div>
+
+                {/* Top Icon */}
+                <div className="absolute top-4 left-4">
+                  <div className="w-fit p-2 rounded-lg bg-black/30 backdrop-blur-sm">
+                    <TruyenZIcon className="w-6 h-6" textSize="text-sm" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm p-4">
+                <h3 className="text-lg font-bold text-white mb-2 font-mono">
+                  {projects[0].title}
+                </h3>
+                <p className="text-gray-300 text-sm mb-3 line-clamp-3">
+                  {projects[0].description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {projects[0].tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs font-mono text-cyan-400 bg-cyan-500/20 rounded border border-cyan-500/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-2">
+                  <a
+                    href={projects[0].github}
+                    className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-mono text-white border border-white/30 rounded-lg hover:bg-white/10 transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    Code
+                  </a>
+                  <a
+                    href={projects[0].demo}
+                    className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-mono bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    <Youtube className="w-4 h-4" />
+                    Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Project 3 - Square Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="col-span-6 lg:col-span-4"
+          >
+            <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group">
+              <div className="relative aspect-square bg-gradient-to-br from-green-500/20 to-emerald-500/20 overflow-hidden">
+                <img
+                  src={projects[2].image}
+                  alt={projects[2].title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    e.target.style.display = 'none'
+                    e.target.nextSibling.style.display = 'flex'
+                  }}
+                />
+                <div
+                  className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-green-500/20 to-emerald-500/20"
+                  style={{ display: 'none' }}
+                >
+                  <Layers className="w-16 h-16 text-primary/50" />
+                </div>
+
+                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors"></div>
+
+                {/* Icon */}
+                <div className="absolute top-4 left-4 p-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 shadow-lg">
+                  <Layers className="w-4 h-4 text-white" />
+                </div>
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                  <h3 className="text-base font-bold text-white mb-2 font-mono">
+                    {projects[2].title}
+                  </h3>
+                  <div className="flex gap-2">
+                    <a
+                      href={projects[2].github}
+                      className="flex-1 flex items-center justify-center gap-1 py-2 text-xs font-mono text-white border border-white/30 rounded hover:bg-white/10 transition-colors"
+                    >
+                      <Github className="w-3 h-3" />
+                      Code
+                    </a>
+                    <a
+                      href={projects[2].demo}
+                      className="flex-1 flex items-center justify-center gap-1 py-2 text-xs font-mono bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded hover:opacity-90 transition-opacity"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      Demo
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Project 4 - Horizontal Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="col-span-6 lg:col-span-8"
+          >
+            <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group">
+              <div className="flex flex-col sm:flex-row aspect-[3/2] sm:aspect-[2/1] overflow-hidden">
+                {/* Image */}
+                <div className="relative sm:w-2/5 h-32 sm:h-full bg-gradient-to-br from-orange-500/20 to-red-500/20 overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    src={projects[3].image}
+                    alt={projects[3].title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     onError={(e) => {
                       e.target.style.display = 'none'
                       e.target.nextSibling.style.display = 'flex'
                     }}
                   />
                   <div
-                    className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/30 to-primary/30"
+                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500/20 to-red-500/20"
                     style={{ display: 'none' }}
                   >
-                    <ProjectIcon className="w-20 h-20 text-primary opacity-50" />
-                  </div>
-
-                  {/* Overlay on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
-
-                  {/* Status indicator */}
-                  <div className="absolute top-4 right-4 flex items-center gap-2 glass-card px-3 py-1 rounded-full">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-gray-300 font-mono">{t.projects.active}</span>
+                    <Code2 className="w-16 h-16 text-primary/50" />
                   </div>
                 </div>
 
-                {/* Project Details */}
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors font-mono">
-                      {project.title}
-                    </h3>
-                    <div className={`p-2 rounded-lg bg-gradient-to-br ${project.color} opacity-20`}>
-                      <ProjectIcon className="w-5 h-5 text-primary" />
+                {/* Content */}
+                <div className="flex-1 p-4 flex flex-col justify-between bg-gradient-to-r from-gray-900/50 to-gray-800/50">
+                  <div>
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="p-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 flex-shrink-0">
+                        <Code2 className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-bold text-white mb-2 font-mono">
+                          {projects[3].title}
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {projects[3].tags.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2 py-1 text-xs font-mono text-orange-400 bg-orange-500/20 rounded border border-orange-500/30"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <p className="text-gray-400 mb-4 leading-relaxed text-sm">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`text-xs px-3 py-1 bg-gradient-to-r ${project.color} bg-opacity-10 text-primary rounded-full border border-primary/30 font-mono`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-3">
+                  <div className="flex gap-2">
                     <a
-                      href={project.github}
-                      className="flex-1 text-center py-2.5 glass-card text-primary rounded hover:border-primary transition-all duration-300 text-sm font-mono flex items-center justify-center gap-2"
+                      href={projects[3].github}
+                      className="flex items-center gap-2 px-3 py-2 text-xs font-mono text-primary border border-primary/30 rounded-lg hover:bg-primary/10 transition-colors"
                     >
-                      <Github className="w-4 h-4" />
-                      {t.projects.sourceCode}
+                      <Github className="w-3.5 h-3.5" />
+                      Code
                     </a>
                     <a
-                      href={project.demo}
-                      className={`flex-1 text-center py-2.5 bg-gradient-to-r ${project.color} text-white rounded hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 text-sm font-mono flex items-center justify-center gap-2`}
+                      href={projects[3].demo}
+                      className="flex items-center gap-2 px-3 py-2 text-xs font-mono bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:opacity-90 transition-opacity"
                     >
-                      <ExternalLink className="w-4 h-4" />
-                      {t.projects.liveDemo}
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      Demo
                     </a>
                   </div>
                 </div>
-              </motion.div>
-            )
-          })}
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* View More Projects */}
+        {/* View All */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          transition={{ delay: 0.4 }}
+          className="text-center mt-12 mb-8"
         >
           <a
             href="https://github.com/qthanh2005"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 glass-card text-primary font-semibold rounded-lg hover:border-primary transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 text-primary border-2 border-primary/30 rounded-lg hover:bg-primary/10 transition-colors font-mono group text-sm"
           >
-            <Github className="w-5 h-5" />
+            <Github className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             {t.projects.viewAllGithub}
+            <motion.span
+              animate={{ x: [0, 3, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-primary"
+            >
+              →
+            </motion.span>
           </a>
         </motion.div>
       </div>
