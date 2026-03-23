@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Mail, Github, Linkedin, Phone, MapPin, Send, MessageSquare, MessageCircle, Star, Zap, Globe, Heart, Facebook, CheckCircle, XCircle } from 'lucide-react'
+import { Mail, Github, Linkedin, Phone, MapPin, Send, MessageSquare, MessageCircle, Star, Zap, Globe, Heart, Facebook, CheckCircle, XCircle, Shield } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../translations/translations'
 import { useState, useRef } from 'react'
@@ -20,6 +20,52 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
 
+  // Security: Bad words filter
+  const badWords = [
+    // English
+    'fuck', 'shit', 'bitch', 'damn', 'ass', 'bastard', 'crap', 'piss', 'hell',
+    'stupid', 'idiot', 'moron', 'dumb', 'retard', 'gay', 'whore', 'slut',
+    // Vietnamese
+    'đụ', 'địt', 'đéo', 'đm', 'dmm', 'vcl', 'vl', 'cc', 'cặc', 'lồn', 'buồi',
+    'đĩ', 'mẹ mày', 'con đĩ', 'thằng ngu', 'con chó', 'đồ ngu', 'câm mồm',
+    'chó má', 'súc vật', 'đồ khốn', 'thằng khờ', 'con lợn', 'đồ chó'
+  ]
+
+  // Security: Rate limiting
+  const checkRateLimit = () => {
+    const now = Date.now()
+    const submissions = JSON.parse(localStorage.getItem('contact_submissions') || '[]')
+
+    // Remove submissions older than 1 hour
+    const recent = submissions.filter(time => now - time < 60 * 60 * 1000)
+
+    // Allow maximum 3 submissions per hour
+    if (recent.length >= 3) {
+      return false
+    }
+
+    // Add current submission
+    recent.push(now)
+    localStorage.setItem('contact_submissions', JSON.stringify(recent))
+    return true
+  }
+
+  // Security: Content validation
+  const validateContent = (content) => {
+    const lowerContent = content.toLowerCase()
+    return !badWords.some(word => {
+      // Check for exact word matches and variations with spaces/punctuation
+      const regex = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i')
+      return regex.test(lowerContent) || lowerContent.includes(word)
+    })
+  }
+
+  // Security: Email validation
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -33,6 +79,53 @@ const Contact = () => {
     setStatus({ type: '', message: '' })
 
     try {
+      // Security checks
+      if (!checkRateLimit()) {
+        setStatus({
+          type: 'error',
+          message: language === 'vi'
+            ? 'Bạn đã gửi quá nhiều tin nhắn. Vui lòng chờ 1 giờ trước khi gửi lại.'
+            : 'Too many submissions. Please wait 1 hour before sending again.'
+        })
+        return
+      }
+
+      if (!validateEmail(formData.email)) {
+        setStatus({
+          type: 'error',
+          message: language === 'vi'
+            ? 'Email không hợp lệ. Vui lòng kiểm tra lại.'
+            : 'Invalid email format. Please check again.'
+        })
+        return
+      }
+
+      // Check for inappropriate content
+      const fieldsToCheck = [formData.name, formData.title, formData.message]
+      for (let field of fieldsToCheck) {
+        if (!validateContent(field)) {
+          setStatus({
+            type: 'error',
+            message: language === 'vi'
+              ? ' Nội dung chứa từ ngữ không phù hợp. Vui lòng sử dụng ngôn từ lịch sự.'
+              : ' Content contains inappropriate language. Please use respectful words.'
+          })
+          return
+        }
+      }
+
+      // Check minimum content length
+      if (formData.message.length < 10) {
+        setStatus({
+          type: 'error',
+          message: language === 'vi'
+            ? 'Tin nhắn quá ngắn. Vui lòng viết ít nhất 10 ký tự.'
+            : 'Message too short. Please write at least 10 characters.'
+        })
+        return
+      }
+
+      // Send email
       await emailjs.send(
         'service_k8q20dj',
         'template_8itrx29',
@@ -43,8 +136,8 @@ const Contact = () => {
       setStatus({
         type: 'success',
         message: language === 'vi'
-          ? 'Tin nhắn đã được gửi thành công! Tôi sẽ phản hồi sớm nhất có thể.'
-          : 'Message sent successfully! I will respond as soon as possible.'
+          ? '✅ Tin nhắn đã được gửi thành công! Tôi sẽ phản hồi sớm nhất có thể.'
+          : '✅ Message sent successfully! I will respond as soon as possible.'
       })
 
       // Reset form
@@ -316,10 +409,24 @@ const Contact = () => {
                     <h3 className="text-3xl lg:text-4xl font-bold font-mono bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                       {t.contact.form.sendMessage}
                     </h3>
-                    <p className="text-gray-400 text-sm mt-1 font-mono">Let's start a conversation 💬</p>
+                    <p className="text-gray-400 text-sm mt-1 font-mono">Let's start a conversation </p>
                   </div>
                 </div>
                 <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full" />
+
+                {/* Security Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                  className="flex items-center gap-2 mt-4"
+                >
+                  <Shield className="w-4 h-4 text-green-400" />
+                  <span className="text-xs text-green-400 font-mono">
+                    {language === 'vi' ? 'Được bảo vệ khỏi spam & nội dung độc hại' : 'Protected from spam & malicious content'}
+                  </span>
+                </motion.div>
               </motion.div>
 
               {/* Form Fields */}
@@ -401,6 +508,22 @@ const Contact = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
+
+                {/* Usage Guidelines */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.9 }}
+                  className="p-3 rounded-xl bg-blue-500/5 border border-blue-500/20"
+                >
+                  <p className="text-xs text-blue-400 font-mono leading-relaxed">
+                    {language === 'vi'
+                      ? ' Lưu ý: Giới hạn 3 tin nhắn/giờ. Vui lòng sử dụng ngôn từ lịch sự và không spam.'
+                      : ' Note: Limited to 3 messages/hour. Please use respectful language and avoid spam.'
+                    }
+                  </p>
+                </motion.div>
 
                 {/* Special Submit Button */}
                 <motion.div
