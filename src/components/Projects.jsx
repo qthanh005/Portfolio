@@ -31,6 +31,40 @@ const TinyChessIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
   </div>
 )
 
+// Custom StoryCrawler Icon Component
+const StoryCrawlerIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
+  <div className={`${className} flex items-center justify-center font-extrabold ${textSize} font-mono`}>
+    <span className="text-green-400">S</span>
+    <span className="text-emerald-400">t</span>
+    <span className="text-lime-400">o</span>
+    <span className="text-teal-400">r</span>
+    <span className="text-cyan-400">y</span>
+    <span className="text-green-500">C</span>
+    <span className="text-emerald-500">r</span>
+    <span className="text-lime-500">a</span>
+    <span className="text-teal-500">w</span>
+    <span className="text-cyan-500">l</span>
+    <span className="text-green-400">e</span>
+    <span className="text-emerald-400">r</span>
+  </div>
+)
+
+// Custom BankingApp Icon Component
+const BankingAppIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
+  <div className={`${className} flex items-center justify-center font-extrabold ${textSize} font-mono`}>
+    <span className="text-orange-400">B</span>
+    <span className="text-amber-400">a</span>
+    <span className="text-yellow-400">n</span>
+    <span className="text-orange-500">k</span>
+    <span className="text-red-400">i</span>
+    <span className="text-rose-400">n</span>
+    <span className="text-orange-400">g</span>
+    <span className="text-amber-500">A</span>
+    <span className="text-yellow-500">p</span>
+    <span className="text-red-500">p</span>
+  </div>
+)
+
 const Projects = () => {
   const { language } = useLanguage()
   const t = translations[language]
@@ -59,21 +93,21 @@ const Projects = () => {
     {
       title: t.projects.projectList.microservices.title,
       description: t.projects.projectList.microservices.description,
-      image: '/images/projects/microservices.jpg',
-      tags: ['Java', 'Spring Boot', 'Kafka', 'PostgreSQL', 'Kubernetes'],
+      image: '/images/crawler.jpg',
+      tags: ['Python', 'Puppeteer', 'Cheerio', 'MongoDB', 'API Integration'],
       github: '#',
-      demo: '#',
-      icon: Layers,
+      demo: 'https://www.youtube.com/watch?v=Kd5_8eiA2Zo',
+      icon: StoryCrawlerIcon,
       color: 'from-green-500 to-emerald-500'
     },
     {
       title: t.projects.projectList.desktop.title,
       description: t.projects.projectList.desktop.description,
-      image: '/images/projects/desktop-app.jpg',
-      tags: ['C#', 'WPF', '.NET Core', 'Entity Framework', 'SQL Server'],
+      image: '/images/bankingapp.jpg',
+      tags: ['Android', 'Java/Kotlin', 'Firebase', 'QR Payment', 'Biometric'],
       github: '#',
-      demo: '#',
-      icon: Code2,
+      demo: 'https://drive.google.com/drive/my-drive?hl=vi',
+      icon: BankingAppIcon,
       color: 'from-orange-500 to-red-500'
     }
   ]
@@ -95,18 +129,18 @@ const Projects = () => {
         </motion.div>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-12 gap-3 lg:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 lg:gap-4">
           {/* Project 2 - TinyChess Hero Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0 }}
-            className="col-span-12 lg:col-span-8"
+            className="md:col-span-8"
           >
             <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group flex flex-col">
               {/* Video Section */}
-              <div className="relative flex-1 min-h-[350px] lg:min-h-[450px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 overflow-hidden">
+              <div className="relative flex-1 min-h-[300px] md:min-h-[350px] lg:min-h-[450px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 overflow-hidden">
                 <iframe
                   src={projects[1].image}
                   title={projects[1].title}
@@ -127,7 +161,7 @@ const Projects = () => {
 
                 {/* Top Icon */}
                 <div className="absolute top-4 left-4">
-                  <div className="w-fit p-2 rounded-lg bg-black/30 backdrop-blur-sm">
+                  <div className="w-fit p-2 rounded-lg">
                     <TinyChessIcon className="w-8 h-8" textSize="text-sm" />
                   </div>
                 </div>
@@ -181,12 +215,12 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="col-span-12 lg:col-span-4"
+            className="md:col-span-4"
           >
             <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group flex flex-col">
               {/* Image Section */}
               <div
-                className="relative flex-1 min-h-[350px] lg:min-h-[450px] bg-gradient-to-br from-blue-500/20 to-cyan-500/20 overflow-hidden"
+                className="relative flex-1 min-h-[300px] md:min-h-[350px] lg:min-h-[450px] bg-gradient-to-br from-blue-500/20 to-cyan-500/20 overflow-hidden"
                 style={{
                   backgroundImage: `url(${projects[0].image})`,
                   backgroundSize: 'cover',
@@ -201,7 +235,7 @@ const Projects = () => {
 
                 {/* Top Icon */}
                 <div className="absolute top-4 left-4">
-                  <div className="w-fit p-2 rounded-lg bg-black/30 backdrop-blur-sm">
+                  <div className="w-fit p-2 rounded-lg">
                     <TruyenZIcon className="w-6 h-6" textSize="text-sm" />
                   </div>
                 </div>
@@ -245,13 +279,13 @@ const Projects = () => {
             </div>
           </motion.div>
 
-          {/* Project 3 - Square Card */}
+          {/* Project 3 - StoryCrawler Square Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="col-span-6 lg:col-span-4"
+            className="col-span-1 md:col-span-6 lg:col-span-4"
           >
             <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group">
               <div className="relative aspect-square bg-gradient-to-br from-green-500/20 to-emerald-500/20 overflow-hidden">
@@ -268,14 +302,14 @@ const Projects = () => {
                   className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-green-500/20 to-emerald-500/20"
                   style={{ display: 'none' }}
                 >
-                  <Layers className="w-16 h-16 text-primary/50" />
+                  <StoryCrawlerIcon className="w-16 h-16" textSize="text-2xl" />
                 </div>
 
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors"></div>
 
                 {/* Icon */}
-                <div className="absolute top-4 left-4 p-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 shadow-lg">
-                  <Layers className="w-4 h-4 text-white" />
+                <div className="absolute top-4 left-4 p-2 rounded-lg">
+                  <StoryCrawlerIcon className="w-6 h-6" textSize="text-xs" />
                 </div>
 
                 {/* Content */}
@@ -295,7 +329,7 @@ const Projects = () => {
                       href={projects[2].demo}
                       className="flex-1 flex items-center justify-center gap-1 py-2 text-xs font-mono bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded hover:opacity-90 transition-opacity"
                     >
-                      <ExternalLink className="w-3 h-3" />
+                      <Youtube className="w-3 h-3" />
                       Demo
                     </a>
                   </div>
@@ -304,18 +338,18 @@ const Projects = () => {
             </div>
           </motion.div>
 
-          {/* Project 4 - Horizontal Card */}
+          {/* Project 4 - BankingApp Detailed Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="col-span-6 lg:col-span-8"
+            className="col-span-1 md:col-span-6 lg:col-span-8"
           >
             <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group">
-              <div className="flex flex-col sm:flex-row aspect-[3/2] sm:aspect-[2/1] overflow-hidden">
+              <div className="flex flex-col lg:flex-row h-full overflow-hidden">
                 {/* Image */}
-                <div className="relative sm:w-2/5 h-32 sm:h-full bg-gradient-to-br from-orange-500/20 to-red-500/20 overflow-hidden">
+                <div className="relative lg:w-2/5 h-48 lg:h-full bg-gradient-to-br from-orange-500/20 to-red-500/20 overflow-hidden">
                   <img
                     src={projects[3].image}
                     alt={projects[3].title}
@@ -329,23 +363,60 @@ const Projects = () => {
                     className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500/20 to-red-500/20"
                     style={{ display: 'none' }}
                   >
-                    <Code2 className="w-16 h-16 text-primary/50" />
+                    <BankingAppIcon className="w-16 h-16" textSize="text-2xl" />
+                  </div>
+
+                  {/* Top Icon */}
+                  <div className="absolute top-4 left-4">
+                    <div className="p-2 rounded-lg">
+                      <BankingAppIcon className="w-6 h-6" textSize="text-xs" />
+                    </div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 p-4 flex flex-col justify-between bg-gradient-to-r from-gray-900/50 to-gray-800/50">
+                <div className="flex-1 p-4 lg:p-6 flex flex-col justify-between bg-gradient-to-r from-gray-900/50 to-gray-800/50">
                   <div>
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 flex-shrink-0">
-                        <Code2 className="w-4 h-4 text-white" />
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="p-2 rounded-lg flex-shrink-0">
+                        <BankingAppIcon className="w-5 h-5" textSize="text-[10px]" />
                       </div>
-                      <div>
-                        <h3 className="text-base font-bold text-white mb-2 font-mono">
+                      <div className="flex-1">
+                        <h3 className="text-lg lg:text-xl font-bold text-white mb-3 font-mono">
                           {projects[3].title}
                         </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {projects[3].tags.slice(0, 3).map((tag) => (
+
+                        {/* Description */}
+                        <p className="text-gray-300 text-sm lg:text-base mb-4 line-clamp-3 lg:line-clamp-4">
+                          {projects[3].description}
+                        </p>
+
+                        {/* Features List */}
+                        <div className="mb-4">
+                          <h4 className="text-orange-400 font-bold text-sm mb-2 font-mono">Key Features:</h4>
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 text-xs lg:text-sm text-gray-300">
+                            <div className="flex items-center gap-2">
+                              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
+                              <span>Biometric Authentication</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
+                              <span>QR Code Payments</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
+                              <span>Real-time Notifications</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
+                              <span>Multi-layer Security</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {projects[3].tags.map((tag) => (
                             <span
                               key={tag}
                               className="px-2 py-1 text-xs font-mono text-orange-400 bg-orange-500/20 rounded border border-orange-500/30"
@@ -358,20 +429,20 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     <a
                       href={projects[3].github}
-                      className="flex items-center gap-2 px-3 py-2 text-xs font-mono text-primary border border-primary/30 rounded-lg hover:bg-primary/10 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 text-sm font-mono text-primary border border-primary/30 rounded-lg hover:bg-primary/10 transition-colors"
                     >
-                      <Github className="w-3.5 h-3.5" />
-                      Code
+                      <Github className="w-4 h-4" />
+                      Source Code
                     </a>
                     <a
                       href={projects[3].demo}
-                      className="flex items-center gap-2 px-3 py-2 text-xs font-mono bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:opacity-90 transition-opacity"
+                      className="flex items-center gap-2 px-4 py-2 text-sm font-mono bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:opacity-90 transition-opacity"
                     >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      Demo
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
                     </a>
                   </div>
                 </div>
