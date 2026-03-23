@@ -2,10 +2,10 @@ export const translations = {
   en: {
     // Navbar
     nav: {
-      about: 'System Profile',
-      skills: 'Core Systems',
-      projects: 'Active Modules',
-      contact: 'Connect Node'
+      about: 'About',
+      skills: 'Skills',
+      projects: 'Projects',
+      contact: 'Contact'
     },
 
     // Hero Section
@@ -150,12 +150,12 @@ export const translations = {
           description: 'Interactive chess game built with Unity and C#. Features include intelligent AI opponent with multiple difficulty levels, smooth 3D animations, piece movement validation, game state management, and cross-platform deployment for desktop and mobile devices.'
         },
         microservices: {
-          title: 'Microservices E-Commerce Backend',
-          description: 'Scalable microservices architecture for e-commerce platform using Spring Boot. Implements API Gateway, Service Discovery (Eureka), distributed tracing (Zipkin), event-driven communication (Kafka), and containerized deployment with Kubernetes.'
+          title: 'StoryCrawler',
+          description: 'Automatic comic and novel crawling tool that downloads chapter images, extracts metadata (title, author, genre, views, likes) and saves directly to database or via API. Supports chapter management, genre synchronization, and can be integrated into larger systems. Designed for easy use, fast and stable when processing hundreds of stories. Demo: https://www.youtube.com/watch?v=Kd5_8eiA2Zo'
         },
         desktop: {
-          title: 'Enterprise Desktop Management System',
-          description: 'High-performance desktop application built with C# and WPF following MVVM architecture. Features include real-time data synchronization, advanced filtering and search, export functionality, and role-based access control with offline capabilities.'
+          title: 'BankingApp',
+          description: 'Modern mobile banking application built with Android (Java/Kotlin) and Firebase. Provides comprehensive financial management solution with multi-layer security authentication (PIN, biometric), account and card management, detailed transaction history, quick money transfers, bill payments, QR code scanning, real-time push notifications, and intuitive user interface. The system is designed to be secure, stable and compliant with banking security standards.'
         }
       }
     },
@@ -189,8 +189,8 @@ export const translations = {
 
       social: {
         title: 'Connect on Social',
-        telegram: 'Telegram',
-        discord: 'Discord'
+        facebook: 'Facebook',
+        zalo: 'Zalo'
       },
 
       availability: {
@@ -203,7 +203,7 @@ export const translations = {
   vi: {
     // Navbar
     nav: {
-      about: 'Hồ Sơ',
+      about: 'Về Tôi',
       skills: 'Kỹ Năng',
       projects: 'Dự Án',
       contact: 'Liên Hệ'
@@ -351,12 +351,12 @@ export const translations = {
           description: 'Game cờ vua tương tác được xây dựng với Unity và C#. Các tính năng bao gồm AI thông minh với nhiều mức độ khó, hoạt ảnh 3D mượt mà, xác thực di chuyển quân cờ, quản lý trạng thái game, và triển khai đa nền tảng cho desktop và mobile.'
         },
         microservices: {
-          title: 'Backend E-Commerce Microservices',
-          description: 'Kiến trúc microservices có khả năng mở rộng cho nền tảng thương mại điện tử sử dụng Spring Boot. Triển khai API Gateway, Service Discovery (Eureka), distributed tracing (Zipkin), giao tiếp theo sự kiện (Kafka), và deployment container hóa với Kubernetes.'
+          title: 'StoryCrawler',
+          description: 'Công cụ crawl truyện tranh và truyện chữ tự động, tải ảnh chương, trích xuất thông tin (tên truyện, tác giả, thể loại, lượt xem, lượt thích) và lưu trực tiếp vào database hoặc qua API. Hỗ trợ quản lý chapters, đồng bộ thể loại, và có thể mở rộng để tích hợp vào hệ thống lớn. Tool được thiết kế để dễ dùng, nhanh chóng và ổn định khi xử lý hàng trăm truyện. Demo: https://www.youtube.com/watch?v=Kd5_8eiA2Zo'
         },
         desktop: {
-          title: 'Hệ Thống Quản Lý Desktop Doanh Nghiệp',
-          description: 'Ứng dụng desktop hiệu suất cao được xây dựng với C# và WPF theo kiến trúc MVVM. Các tính năng bao gồm đồng bộ hóa dữ liệu thời gian thực, lọc và tìm kiếm nâng cao, chức năng xuất dữ liệu, và kiểm soát truy cập dựa trên vai trò với khả năng offline.'
+          title: 'BankingApp',
+          description: 'Ứng dụng ngân hàng di động hiện đại được xây dựng với Android (Java/Kotlin) và Firebase. Cung cấp giải pháp quản lý tài chính toàn diện với xác thực bảo mật đa lớp (PIN, sinh trắc học), quản lý tài khoản và thẻ, lịch sử giao dịch chi tiết, chuyển tiền nhanh chóng, thanh toán hóa đơn, quét mã QR, thông báo đẩy thời gian thực, và giao diện người dùng trực quan. Hệ thống được thiết kế an toàn, ổn định và tuân thủ các chuẩn bảo mật ngân hàng.'
         }
       }
     },
@@ -390,8 +390,8 @@ export const translations = {
 
       social: {
         title: 'Kết Nối Mạng Xã Hội',
-        telegram: 'Telegram',
-        discord: 'Discord'
+        facebook: 'Facebook',
+        zalo: 'Zalo'
       },
 
       availability: {
