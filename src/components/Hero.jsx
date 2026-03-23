@@ -25,7 +25,7 @@ const Hero = () => {
     } else {
       setTimeout(() => setShowMain(true), 400)
     }
-  }, [textIndex])
+  }, [textIndex, initSequence.length])
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
