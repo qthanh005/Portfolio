@@ -13,8 +13,8 @@ export const translations = {
       greeting: "Hello World, I'm",
       name: 'LE QUANG',
       surname: 'THANH',
-      role: 'Full-Stack Software Engineer',
-      description: 'Specialized in Backend Architecture, Real-time Communication Systems, and Machine Learning Integration. Building scalable, high-performance applications that solve real-world problems.',
+      role: 'Full-Stack Software Developer',
+      description: 'Specialized in Full-Stack Web Development, Android Applications, and Game Development. Building scalable, high-performance applications with modern technologies and automation systems.',
       viewProjects: 'View Projects',
       getInTouch: 'Get In Touch',
       resume: 'Resume',
@@ -36,38 +36,58 @@ export const translations = {
         fullName: 'Full Name',
         fullNameValue: 'Le Quang Thanh',
         position: 'Position',
-        positionValue: 'Full-Stack Software Engineer',
+        positionValue: 'Full-Stack Software Developer',
         specialization: 'Specialization',
-        specializationValue: 'Backend Systems • Distributed Architecture • Real-time Communication',
+        specializationValue: 'Web Development • Mobile Apps • Game Development',
         currentFocus: 'Current Focus',
-        currentFocusValue: 'Microservices • WebRTC • Machine Learning Pipelines',
+        currentFocusValue: 'Full-Stack • Android • Unity • Web Automation',
         experience: 'Experience',
-        experienceValue: 'Building Production-Ready Systems',
+        experienceValue: 'Personal Projects since 08/2023',
         expertise: 'Expertise',
-        expertiseValue: 'Enterprise Software Development • System Design • DevOps'
+        expertiseValue: 'Full-Stack Development • Mobile Apps • Web Crawling'
       },
 
       overview: {
-        paragraph1: 'Passionate software engineer with a strong foundation in computer science and hands-on experience building enterprise-grade applications. Specialized in designing scalable backend infrastructures, implementing real-time communication systems, and integrating AI/ML solutions.',
-        paragraph2: 'Committed to writing clean, maintainable code following SOLID principles and design patterns. Constantly learning and adapting to emerging technologies to deliver innovative solutions that improve user experience and business outcomes.'
+        paragraph1: 'Passionate software engineer with hands-on experience in full-stack development, mobile applications, and game development. Specialized in building scalable web applications, implementing automation systems, and creating interactive experiences across multiple platforms.',
+        paragraph2: 'Experienced in developing Android applications, Unity games, and web crawling systems. Committed to writing clean, maintainable code while continuously learning new technologies to deliver innovative solutions.'
+      },
+
+      experience: {
+        title: 'Software Developer',
+        subtitle: 'Personal Projects',
+        period: '08/2023 - Present',
+        location: 'Ho Chi Minh City, Vietnam',
+        responsibilities: [
+          'Developed full-stack web applications using React and Node.js',
+          'Built Android applications with Java/Kotlin, focusing on UI/UX and API integration',
+          'Created interactive applications and games using Unity (C#)',
+          'Managed and optimized databases using MongoDB, MySQL, and PostgreSQL',
+          'Implemented secure authentication mechanisms using JWT-based systems',
+          'Deployed and maintained applications on Vercel and Netlify',
+          'Built scalable web crawling systems using Puppeteer, Cheerio, and BeautifulSoup',
+          'Designed fault-tolerant data extraction pipelines with anti-blocking strategies and retry mechanisms',
+          'Automated data workflows using cron jobs',
+          'Structured and integrated collected data for backend systems',
+          'Processed subtitle/video data with BeautiSub'
+        ]
       },
 
       highlights: {
-        backend: {
-          title: 'Backend Architecture',
-          description: 'Designing and implementing scalable microservices architectures with RESTful APIs, GraphQL, and message queuing systems (RabbitMQ, Kafka).'
+        fullstack: {
+          title: 'Full-Stack Development',
+          description: 'Building complete web applications with React, Node.js, and modern databases (MongoDB, MySQL, PostgreSQL).'
         },
-        realtime: {
-          title: 'Real-time Systems',
-          description: 'Building high-performance real-time communication platforms using WebSocket, WebRTC, and Socket.IO with sub-second latency.'
+        mobile: {
+          title: 'Mobile Development',
+          description: 'Creating Android applications with Java/Kotlin, focusing on intuitive UI/UX and seamless API integration.'
         },
-        ml: {
-          title: 'Machine Learning Integration',
-          description: 'Integrating ML models into production systems, implementing data pipelines, and deploying predictive analytics solutions.'
+        automation: {
+          title: 'Web Automation & Crawling',
+          description: 'Developing scalable web scraping systems with Puppeteer, Cheerio, and BeautifulSoup with anti-blocking strategies.'
         },
-        cloud: {
-          title: 'Cloud & DevOps',
-          description: 'Experience with containerization (Docker, Kubernetes), CI/CD pipelines, and cloud platforms (AWS, Azure, GCP).'
+        game: {
+          title: 'Game Development',
+          description: 'Building interactive games and applications using Unity engine with C# for cross-platform deployment.'
         }
       }
     },
@@ -85,7 +105,30 @@ export const translations = {
         realtime: 'Real-time Communication',
         devops: 'DevOps & Cloud',
         ml: 'Machine Learning'
-      }
+      },
+
+      additionalSkills: [
+        {
+          name: 'Web Crawling',
+          description: 'Puppeteer, Cheerio, BeautifulSoup'
+        },
+        {
+          name: 'Automation',
+          description: 'Data workflows, Cron jobs'
+        },
+        {
+          name: 'System Design',
+          description: 'Scalable architectures'
+        },
+        {
+          name: 'Data Processing',
+          description: 'ETL pipelines, Data integration'
+        },
+        {
+          name: 'Business Analysis',
+          description: 'Requirements gathering'
+        }
+      ]
     },
 
     // Projects Section
@@ -99,12 +142,12 @@ export const translations = {
 
       projectList: {
         webrtc: {
-          title: 'WebRTC Video Conference Platform',
-          description: 'Enterprise-grade real-time video conferencing system built with WebRTC and Socket.IO. Features include multi-party video calls, screen sharing, chat messaging, and room management. Implements peer-to-peer connections with fallback TURN servers for optimal performance.'
+          title: 'Comic Website Platform',
+          description: 'Modern comic reading platform built with React and Node.js. Features include comic viewer with smooth page transitions, user authentication, favorite comics, reading progress tracking, and responsive design optimized for all devices.'
         },
         ml: {
-          title: 'Machine Learning Prediction Engine',
-          description: 'Full-stack ML application implementing supervised learning algorithms (Linear Regression, Naive Bayes, Decision Trees) for predictive analytics. Includes data preprocessing pipeline, model training interface, and REST API for real-time predictions with monitoring dashboard.'
+          title: 'TinyChess Game',
+          description: 'Interactive chess game built with Unity and C#. Features include intelligent AI opponent with multiple difficulty levels, smooth 3D animations, piece movement validation, game state management, and cross-platform deployment for desktop and mobile devices.'
         },
         microservices: {
           title: 'Microservices E-Commerce Backend',
@@ -171,8 +214,8 @@ export const translations = {
       greeting: "Xin chào, tôi là",
       name: 'LÊ QUANG',
       surname: 'THÀNH',
-      role: 'Kỹ Sư Phần Mềm Full-Stack',
-      description: 'Chuyên về Kiến Trúc Backend, Hệ Thống Giao Tiếp Thời Gian Thực, và Tích Hợp Machine Learning. Xây dựng các ứng dụng có khả năng mở rộng, hiệu suất cao giải quyết các vấn đề thực tế.',
+      role: 'Lập Trình Viên Full-Stack',
+      description: 'Chuyên về Phát Triển Web Full-Stack, Ứng Dụng Android và Phát Triển Game. Xây dựng các ứng dụng có khả năng mở rộng, hiệu suất cao với công nghệ hiện đại và hệ thống tự động hóa.',
       viewProjects: 'Xem Dự Án',
       getInTouch: 'Liên Hệ',
       resume: 'Hồ Sơ',
@@ -194,38 +237,58 @@ export const translations = {
         fullName: 'Họ và Tên',
         fullNameValue: 'Lê Quang Thành',
         position: 'Vị Trí',
-        positionValue: 'Kỹ Sư Phần Mềm Full-Stack',
+        positionValue: 'Lập Trình Viên Full-Stack',
         specialization: 'Chuyên Môn',
-        specializationValue: 'Hệ Thống Backend • Kiến Trúc Phân Tán • Giao Tiếp Thời Gian Thực',
+        specializationValue: 'Phát Triển Web • Ứng Dụng Mobile • Phát Triển Game',
         currentFocus: 'Trọng Tâm Hiện Tại',
-        currentFocusValue: 'Microservices • WebRTC • Machine Learning Pipelines',
+        currentFocusValue: 'Full-Stack • Android • Unity • Tự Động Hóa Web',
         experience: 'Kinh Nghiệm',
-        experienceValue: 'Xây Dựng Hệ Thống Production',
+        experienceValue: 'Dự Án Cá Nhân từ 08/2023',
         expertise: 'Chuyên Sâu',
-        expertiseValue: 'Phát Triển Phần Mềm Doanh Nghiệp • Thiết Kế Hệ Thống • DevOps'
+        expertiseValue: 'Phát Triển Full-Stack • Ứng Dụng Mobile • Web Crawling'
       },
 
       overview: {
-        paragraph1: 'Kỹ sư phần mềm đam mê với nền tảng vững chắc về khoa học máy tính và kinh nghiệm thực tế trong việc xây dựng các ứng dụng cấp doanh nghiệp. Chuyên về thiết kế cơ sở hạ tầng backend có khả năng mở rộng, triển khai hệ thống giao tiếp thời gian thực và tích hợp các giải pháp AI/ML.',
-        paragraph2: 'Cam kết viết code sạch, dễ bảo trì theo các nguyên tắc SOLID và design patterns. Không ngừng học hỏi và thích ứng với các công nghệ mới để cung cấp các giải pháp sáng tạo cải thiện trải nghiệm người dùng và kết quả kinh doanh.'
+        paragraph1: 'Kỹ sư phần mềm đam mê với kinh nghiệm thực tế trong phát triển full-stack, ứng dụng di động và phát triển game. Chuyên về xây dựng ứng dụng web có khả năng mở rộng, triển khai hệ thống tự động hóa và tạo các trải nghiệm tương tác trên nhiều nền tảng.',
+        paragraph2: 'Có kinh nghiệm phát triển ứng dụng Android, game Unity và hệ thống web crawling. Cam kết viết code sạch, dễ bảo trì đồng thời không ngừng học hỏi công nghệ mới để cung cấp các giải pháp sáng tạo.'
+      },
+
+      experience: {
+        title: 'Lập Trình Viên',
+        subtitle: 'Dự Án Cá Nhân',
+        period: '08/2023 - Hiện tại',
+        location: 'TP. Hồ Chí Minh, Việt Nam',
+        responsibilities: [
+          'Phát triển các ứng dụng web full-stack sử dụng React và Node.js',
+          'Xây dựng các ứng dụng Android bằng Java/Kotlin, tập trung vào UI/UX và tích hợp API',
+          'Phát triển các ứng dụng và trò chơi tương tác bằng Unity (C#)',
+          'Quản lý và tối ưu hóa cơ sở dữ liệu sử dụng MongoDB, MySQL và PostgreSQL',
+          'Triển khai cơ chế xác thực bảo mật bằng JWT-based mechanisms',
+          'Triển khai và bảo trì các ứng dụng trên Vercel và Netlify',
+          'Xây dựng hệ thống web crawling có khả năng mở rộng bằng Puppeteer, Cheerio và BeautifulSoup',
+          'Thiết kế các pipeline trích xuất dữ liệu có khả năng chịu lỗi với các chiến lược anti-blocking và retry',
+          'Tự động hóa quy trình làm việc của dữ liệu bằng cron jobs',
+          'Cấu trúc và tích hợp dữ liệu thu thập được cho các hệ thống backend',
+          'Xử lý dữ liệu phụ đề/video bằng BeautiSub'
+        ]
       },
 
       highlights: {
-        backend: {
-          title: 'Kiến Trúc Backend',
-          description: 'Thiết kế và triển khai kiến trúc microservices có khả năng mở rộng với RESTful APIs, GraphQL, và hệ thống message queuing (RabbitMQ, Kafka).'
+        fullstack: {
+          title: 'Phát Triển Full-Stack',
+          description: 'Xây dựng ứng dụng web hoàn chỉnh với React, Node.js và các cơ sở dữ liệu hiện đại (MongoDB, MySQL, PostgreSQL).'
         },
-        realtime: {
-          title: 'Hệ Thống Thời Gian Thực',
-          description: 'Xây dựng các nền tảng giao tiếp thời gian thực hiệu suất cao sử dụng WebSocket, WebRTC, và Socket.IO với độ trễ dưới một giây.'
+        mobile: {
+          title: 'Phát Triển Mobile',
+          description: 'Tạo các ứng dụng Android bằng Java/Kotlin, tập trung vào UI/UX trực quan và tích hợp API liền mạch.'
         },
-        ml: {
-          title: 'Tích Hợp Machine Learning',
-          description: 'Tích hợp các mô hình ML vào hệ thống production, triển khai data pipelines, và deploy các giải pháp phân tích dự đoán.'
+        automation: {
+          title: 'Tự Động Hóa & Web Crawling',
+          description: 'Phát triển hệ thống web scraping có khả năng mở rộng với Puppeteer, Cheerio và BeautifulSoup cùng chiến lược anti-blocking.'
         },
-        cloud: {
-          title: 'Cloud & DevOps',
-          description: 'Kinh nghiệm với containerization (Docker, Kubernetes), CI/CD pipelines, và các nền tảng cloud (AWS, Azure, GCP).'
+        game: {
+          title: 'Phát Triển Game',
+          description: 'Xây dựng game và ứng dụng tương tác sử dụng Unity engine với C# để triển khai đa nền tảng.'
         }
       }
     },
@@ -243,7 +306,30 @@ export const translations = {
         realtime: 'Giao Tiếp Thời Gian Thực',
         devops: 'DevOps & Cloud',
         ml: 'Machine Learning'
-      }
+      },
+
+      additionalSkills: [
+        {
+          name: 'Web Crawling',
+          description: 'Puppeteer, Cheerio, BeautifulSoup'
+        },
+        {
+          name: 'Tự Động Hóa',
+          description: 'Quy trình dữ liệu, Cron jobs'
+        },
+        {
+          name: 'Thiết Kế Hệ Thống',
+          description: 'Kiến trúc có khả năng mở rộng'
+        },
+        {
+          name: 'Xử Lý Dữ Liệu',
+          description: 'Pipeline ETL, Tích hợp dữ liệu'
+        },
+        {
+          name: 'Phân Tích Nghiệp Vụ',
+          description: 'Thu thập yêu cầu'
+        }
+      ]
     },
 
     // Projects Section
@@ -257,12 +343,12 @@ export const translations = {
 
       projectList: {
         webrtc: {
-          title: 'Nền Tảng Hội Nghị Video WebRTC',
-          description: 'Hệ thống hội nghị video thời gian thực cấp doanh nghiệp được xây dựng với WebRTC và Socket.IO. Các tính năng bao gồm cuộc gọi video nhiều người, chia sẻ màn hình, chat tin nhắn và quản lý phòng. Triển khai kết nối peer-to-peer với TURN servers dự phòng để đạt hiệu suất tối ưu.'
+          title: 'Website Truyện Tranh',
+          description: 'Nền tảng đọc truyện tranh hiện đại được xây dựng với React và Node.js. Các tính năng bao gồm trình đọc truyện với chuyển tiếp trang mượt mà, xác thực người dùng, truyện yêu thích, theo dõi tiến trình đọc, và thiết kế responsive tối ưu cho mọi thiết bị.'
         },
         ml: {
-          title: 'Công Cụ Dự Đoán Machine Learning',
-          description: 'Ứng dụng ML full-stack triển khai các thuật toán học có giám sát (Linear Regression, Naive Bayes, Decision Trees) cho phân tích dự đoán. Bao gồm pipeline tiền xử lý dữ liệu, giao diện huấn luyện mô hình, và REST API cho dự đoán thời gian thực với dashboard giám sát.'
+          title: 'Game Cờ Vua TinyChess',
+          description: 'Game cờ vua tương tác được xây dựng với Unity và C#. Các tính năng bao gồm AI thông minh với nhiều mức độ khó, hoạt ảnh 3D mượt mà, xác thực di chuyển quân cờ, quản lý trạng thái game, và triển khai đa nền tảng cho desktop và mobile.'
         },
         microservices: {
           title: 'Backend E-Commerce Microservices',

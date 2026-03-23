@@ -1,22 +1,24 @@
 import { motion } from 'framer-motion'
 import {
   Code2, Database, Cloud, Cpu, Network, Brain,
-  Server, Terminal, Zap, Sparkles
+  Server, Terminal, Zap, Sparkles, FileCode, Palette, Coffee
 } from 'lucide-react'
 import {
   SiJavascript,
   SiTypescript,
   SiReact,
   SiNodedotjs,
-  SiSpringboot,
+  SiExpress,
   SiMongodb,
   SiPostgresql,
   SiMysql,
-  SiRedis,
   SiDocker,
-  SiKubernetes,
   SiGit,
-  SiLinux,
+  SiUnity,
+  SiAndroid,
+  SiKotlin,
+  SiPuppeteer,
+  SiVercel,
   SiPython
 } from 'react-icons/si'
 import { useLanguage } from '../context/LanguageContext'
@@ -27,27 +29,42 @@ const Skills = () => {
   const t = translations[language]
 
   const featuredTechs = [
-    { name: 'React', icon: SiReact, color: 'text-cyan-400', bgColor: 'bg-cyan-500/10', level: 85, gradientColor: 'from-cyan-500 to-blue-500' },
-    { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-400', bgColor: 'bg-green-500/10', level: 80, gradientColor: 'from-green-500 to-emerald-500' },
-    { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-400', bgColor: 'bg-blue-500/10', level: 80, gradientColor: 'from-blue-500 to-indigo-500' },
-    { name: 'Docker', icon: SiDocker, color: 'text-blue-500', bgColor: 'bg-blue-600/10', level: 85, gradientColor: 'from-blue-600 to-cyan-600' },
-    { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-blue-300', bgColor: 'bg-blue-400/10', level: 85, gradientColor: 'from-blue-400 to-blue-600' },
-    { name: 'MongoDB', icon: SiMongodb, color: 'text-green-500', bgColor: 'bg-green-600/10', level: 80, gradientColor: 'from-green-600 to-green-400' },
-    { name: 'Python', icon: SiPython, color: 'text-yellow-400', bgColor: 'bg-yellow-500/10', level: 75, gradientColor: 'from-yellow-500 to-orange-500' },
-    { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-500', bgColor: 'bg-yellow-600/10', level: 90, gradientColor: 'from-yellow-600 to-yellow-400' },
-    { name: 'Java', color: 'text-red-500', bgColor: 'bg-red-500/10', level: 90, gradientColor: 'from-red-500 to-orange-500' },
-    { name: 'C#/.NET', color: 'text-purple-500', bgColor: 'bg-purple-500/10', level: 85, gradientColor: 'from-purple-500 to-indigo-500' },
-    { name: 'Spring Boot', icon: SiSpringboot, color: 'text-green-400', bgColor: 'bg-green-500/10', level: 85, gradientColor: 'from-green-500 to-green-600' },
-    { name: 'MySQL', icon: SiMysql, color: 'text-orange-400', bgColor: 'bg-orange-500/10', level: 80, gradientColor: 'from-orange-500 to-red-500' }
+    // Frontend
+    { name: 'React', icon: SiReact, color: 'text-cyan-400', bgColor: 'bg-cyan-500/10', level: 85, gradientColor: 'from-cyan-500 to-blue-500', category: 'Frontend' },
+    { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-500', bgColor: 'bg-yellow-600/10', level: 90, gradientColor: 'from-yellow-600 to-yellow-400', category: 'Frontend' },
+    { name: 'HTML5', icon: FileCode, color: 'text-orange-500', bgColor: 'bg-orange-500/10', level: 90, gradientColor: 'from-orange-500 to-red-500', category: 'Frontend' },
+    { name: 'CSS3', icon: Palette, color: 'text-blue-400', bgColor: 'bg-blue-500/10', level: 85, gradientColor: 'from-blue-500 to-cyan-500', category: 'Frontend' },
+
+    // Backend
+    { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-400', bgColor: 'bg-green-500/10', level: 85, gradientColor: 'from-green-500 to-emerald-500', category: 'Backend' },
+    { name: 'Express', icon: SiExpress, color: 'text-gray-300', bgColor: 'bg-gray-500/10', level: 85, gradientColor: 'from-gray-500 to-gray-600', category: 'Backend' },
+
+    // Database
+    { name: 'MongoDB', icon: SiMongodb, color: 'text-green-500', bgColor: 'bg-green-600/10', level: 85, gradientColor: 'from-green-600 to-green-400', category: 'Database' },
+    { name: 'MySQL', icon: SiMysql, color: 'text-blue-400', bgColor: 'bg-blue-500/10', level: 85, gradientColor: 'from-blue-500 to-cyan-500', category: 'Database' },
+    { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-blue-300', bgColor: 'bg-blue-400/10', level: 80, gradientColor: 'from-blue-400 to-blue-600', category: 'Database' },
+
+    // Mobile & Game
+    { name: 'Android', icon: SiAndroid, color: 'text-green-400', bgColor: 'bg-green-500/10', level: 80, gradientColor: 'from-green-500 to-lime-500', category: 'Mobile' },
+    { name: 'Java', icon: Coffee, color: 'text-red-500', bgColor: 'bg-red-500/10', level: 85, gradientColor: 'from-red-500 to-orange-500', category: 'Mobile' },
+    { name: 'Kotlin', icon: SiKotlin, color: 'text-purple-400', bgColor: 'bg-purple-500/10', level: 75, gradientColor: 'from-purple-500 to-indigo-500', category: 'Mobile' },
+    { name: 'Unity', icon: SiUnity, color: 'text-gray-300', bgColor: 'bg-gray-500/10', level: 75, gradientColor: 'from-gray-500 to-gray-700', category: 'Game' },
+    { name: 'C#', icon: Code2, color: 'text-purple-500', bgColor: 'bg-purple-500/10', level: 80, gradientColor: 'from-purple-500 to-indigo-500', category: 'Game' },
+
+    // Automation & Tools
+    { name: 'Puppeteer', icon: SiPuppeteer, color: 'text-cyan-400', bgColor: 'bg-cyan-500/10', level: 80, gradientColor: 'from-cyan-500 to-teal-500', category: 'Automation' },
+    { name: 'Python', icon: SiPython, color: 'text-yellow-400', bgColor: 'bg-yellow-500/10', level: 75, gradientColor: 'from-yellow-500 to-blue-500', category: 'Automation' }
   ]
 
   const tools = [
     { name: 'Git', icon: SiGit },
-    { name: 'Linux', icon: SiLinux },
-    { name: 'Spring Boot', icon: SiSpringboot },
+    { name: 'Vercel', icon: SiVercel },
     { name: 'Docker', icon: SiDocker },
-    { name: 'React', icon: SiReact },
+    { name: 'RESTful APIs', icon: Network },
+    { name: 'Unity', icon: SiUnity }
   ]
+
+  const additionalSkills = t.skills.additionalSkills
 
   return (
     <section id="skills" className="py-20 px-6 relative">
@@ -222,6 +239,49 @@ const Skills = () => {
                 )
               })}
             </div>
+          </div>
+        </motion.div>
+
+        {/* Additional Skills Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-12"
+        >
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <Brain className="w-5 h-5 text-secondary" />
+            <h3 className="text-xl font-semibold text-secondary font-mono">
+              {language === 'en' ? 'Additional Expertise' : 'Chuyên Môn Bổ Sung'}
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {additionalSkills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="glass-card p-5 rounded-xl hover:border-secondary/50 transition-all duration-300 group"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-1">
+                    <Cpu className="w-5 h-5 text-secondary group-hover:text-primary transition-colors" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-white font-mono font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      {skill.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
