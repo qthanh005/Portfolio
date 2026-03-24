@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { LanguageProvider } from './context/LanguageContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -36,6 +38,8 @@ function App() {
           <Footer />
         </div>
       </div>
+      <Analytics />
+      <SpeedInsights />
     </LanguageProvider>
   )
 }

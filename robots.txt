@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /yarn.lock
+Disallow: /vite.config.js
+
+Sitemap: https://webcungthanh.io.vn/sitemap.xml
