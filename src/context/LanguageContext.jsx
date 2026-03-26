@@ -12,8 +12,8 @@ export const useLanguage = () => {
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
-    // Get saved language from localStorage or default to 'en'
-    return localStorage.getItem('portfolio-language') || 'en'
+    // Get saved language from localStorage or default to 'vi'
+    return localStorage.getItem('portfolio-language') || 'vi'
   })
 
   useEffect(() => {
