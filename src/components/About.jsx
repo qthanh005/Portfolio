@@ -172,10 +172,10 @@ const About = () => {
                     </h3>
                     <button
                       onClick={() => setIsFlipped(!isFlipped)}
-                      className="p-2 bg-black/30 backdrop-blur-sm hover:bg-primary/20 rounded-lg transition-colors duration-300 group border border-white/20"
+                      className="p-2 bg-black/30 backdrop-blur-sm hover:bg-white/20 rounded-lg transition-colors duration-300 group border border-white/20"
                       aria-label="Flip card back to profile info"
                     >
-                      <RotateCcw className="w-5 h-5 text-white group-hover:text-primary transition-colors" />
+                      <RotateCcw className="w-5 h-5 text-white transition-colors" />
                     </button>
                   </div>
                 </div>
@@ -194,7 +194,7 @@ const About = () => {
                       {t.about.profile.fullNameValue}
                     </h4>
 
-                    <p className="text-gray-200 font-mono text-sm drop-shadow">
+                    <p className="text-white font-mono text-sm drop-shadow">
                       {t.about.profile.positionValue}
                     </p>
 
@@ -206,7 +206,7 @@ const About = () => {
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.2 + index * 0.1 }}
-                          className="px-3 py-1 bg-primary/20 backdrop-blur-sm text-primary text-xs font-mono rounded-full border border-primary/30"
+                          className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-mono rounded-full border border-white/30"
                         >
                           {tech}
                         </motion.span>
@@ -218,16 +218,16 @@ const About = () => {
                 {/* Decorative elements */}
                 <div className="absolute inset-0 pointer-events-none">
                   {/* Corner accent lines */}
-                  <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/50"></div>
-                  <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-primary/50"></div>
-                  <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-secondary/50"></div>
-                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-secondary/50"></div>
+                  <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-white/50"></div>
+                  <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-white/50"></div>
+                  <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-white/50"></div>
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white/50"></div>
 
                   {/* Floating particles */}
                   {[...Array(6)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className="absolute w-1 h-1 bg-primary/60 rounded-full"
+                      className="absolute w-1 h-1 bg-white/60 rounded-full"
                       style={{
                         left: `${20 + i * 15}%`,
                         top: `${30 + (i % 3) * 20}%`,
