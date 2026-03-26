@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import {
   Code2, Database, Cloud, Cpu, Network, Brain,
-  Server, Terminal, Zap, Sparkles, FileCode, Palette, Coffee
+  Server, Terminal, Zap, Sparkles, FileCode, Palette, Coffee,
+  Globe, Workflow, Boxes, FileSpreadsheet, Briefcase
 } from 'lucide-react'
 import {
   SiJavascript,
@@ -57,14 +58,23 @@ const Skills = () => {
   ]
 
   const tools = [
-    { name: 'Git', icon: SiGit },
-    { name: 'Vercel', icon: SiVercel },
-    { name: 'Docker', icon: SiDocker },
-    { name: 'RESTful APIs', icon: Network },
-    { name: 'Unity', icon: SiUnity }
+    { name: 'Git', icon: SiGit, color: 'text-orange-600' },
+    { name: 'Vercel', icon: SiVercel, color: 'text-black' },
+    { name: 'Docker', icon: SiDocker, color: 'text-blue-500' },
+    { name: 'RESTful APIs', icon: Network, color: 'text-green-600' },
+    { name: 'Unity', icon: SiUnity, color: 'text-gray-700' }
   ]
 
   const additionalSkills = t.skills.additionalSkills
+
+  // Icons for each additional skill
+  const skillIcons = [
+    { icon: Globe },      // Web Crawling
+    { icon: Workflow },   // Automation
+    { icon: Boxes },      // System Design
+    { icon: FileSpreadsheet }, // Data Processing
+    { icon: Briefcase }   // Business Analysis
+  ]
 
   return (
     <section id="skills" className="py-20 px-6 relative">
@@ -81,7 +91,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold mb-4 text-center font-mono"
         >
-          <span className="text-gray-400">&gt;</span> {t.skills.title} <span className="gradient-text">{t.skills.titleHighlight}</span>
+          <span className="text-gray-600">&gt;</span> {t.skills.title} <span className="gradient-text">{t.skills.titleHighlight}</span>
         </motion.h2>
 
         <motion.p
@@ -89,200 +99,356 @@ const Skills = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-gray-400 text-center mb-12 max-w-2xl mx-auto"
+          className="text-gray-700 text-center mb-12 max-w-2xl mx-auto"
         >
           {language === 'en'
             ? 'Proficient in modern technologies and frameworks for building scalable applications'
             : 'Thành thạo các công nghệ và framework hiện đại để xây dựng ứng dụng có khả năng mở rộng'}
         </motion.p>
 
-        {/* Featured Technologies Grid */}
+        {/* Infinite Scrolling Technologies */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mb-16"
+          className="mb-16 overflow-hidden"
         >
           <div className="flex items-center justify-center gap-2 mb-8">
-            <Sparkles className="w-5 h-5 text-primary" />
-            <h3 className="text-xl font-semibold text-primary font-mono">
+            <Sparkles className="w-5 h-5 text-black" />
+            <h3 className="text-xl font-semibold text-black font-mono">
               {language === 'en' ? 'Core Technologies' : 'Công Nghệ Chính'}
             </h3>
-            <Sparkles className="w-5 h-5 text-primary" />
+            <Sparkles className="w-5 h-5 text-black" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {featuredTechs.map((tech, index) => {
-              const TechIcon = tech.icon
-              return (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className={`relative group glass-card p-6 rounded-xl hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer`}
-                >
-                  {/* Background glow on hover */}
-                  <div className={`absolute inset-0 ${tech.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
-                  {/* Animated background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:via-secondary/5 group-hover:to-primary/5 transition-all duration-500"></div>
+          {/* Infinite Scroll Container */}
+          <div className="relative">
+            {/* Gradient overlays for fade effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-                  {/* Content */}
-                  <div className="relative flex flex-col items-center gap-3">
-                    <div className="relative">
-                      <div className={`absolute inset-0 ${tech.bgColor} blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500`}></div>
-                      {TechIcon ? (
-                        <TechIcon className={`w-12 h-12 ${tech.color} group-hover:scale-110 transition-transform duration-300 relative z-10`} />
-                      ) : (
-                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${tech.gradientColor} flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300`}>
-                          <Code2 className="w-6 h-6 text-white" />
-                        </div>
-                      )}
-                    </div>
-                    <span className="text-gray-300 font-mono text-sm group-hover:text-white transition-colors font-medium text-center">
-                      {tech.name}
-                    </span>
-
-                    {/* Progress bar - only show on hover */}
-                    <div className="w-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-xs text-gray-500 font-mono">Level</span>
-                        <span className="text-xs text-primary font-mono font-bold">{tech.level}%</span>
+            {/* Scrolling content */}
+            <div className="flex gap-6 animate-scroll">
+              {/* First set of technologies */}
+              {featuredTechs.map((tech, index) => {
+                const TechIcon = tech.icon
+                return (
+                  <div
+                    key={`tech-1-${index}`}
+                    className="flex-shrink-0 glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer min-w-[180px]"
+                  >
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="relative">
+                        <div className={`absolute inset-0 ${tech.bgColor} blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500`}></div>
+                        {TechIcon ? (
+                          <TechIcon className={`w-12 h-12 ${tech.color} group-hover:scale-110 transition-transform duration-300 relative z-10`} />
+                        ) : (
+                          <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${tech.gradientColor} flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                            <Code2 className="w-6 h-6 text-white" />
+                          </div>
+                        )}
                       </div>
-                      <div className="w-full bg-gray-800/50 h-1.5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${tech.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 1,
-                            delay: 0.2,
-                            ease: "easeOut"
-                          }}
-                          className={`h-full bg-gradient-to-r ${tech.gradientColor} rounded-full shadow-sm`}
-                        >
-                          {/* Shine effect */}
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                            animate={{
-                              x: ['-100%', '100%']
-                            }}
-                            transition={{
-                              duration: 1.5,
-                              repeat: Infinity,
-                              repeatDelay: 2
-                            }}
-                          />
-                        </motion.div>
+                      <span className="text-gray-700 font-mono text-sm group-hover:text-black transition-colors font-medium text-center">
+                        {tech.name}
+                      </span>
+                      <div className="w-full bg-black/5 h-1 rounded-full overflow-hidden">
+                        <div 
+                          className={`h-full bg-gradient-to-r ${tech.gradientColor} rounded-full`}
+                          style={{ width: `${tech.level}%` }}
+                        />
                       </div>
                     </div>
                   </div>
-                </motion.div>
-              )
-            })}
-          </div>
-        </motion.div>
-
-        {/* Tools & Technologies */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-card p-8 rounded-xl relative overflow-hidden group"
-        >
-          {/* Animated background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-
-          <div className="relative">
-            <div className="flex items-center justify-center gap-2 mb-8">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <Zap className="w-6 h-6 text-primary" />
-              </motion.div>
-              <h3 className="text-2xl font-bold gradient-text font-mono">
-                {t.skills.toolsTitle}
-              </h3>
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <Terminal className="w-6 h-6 text-secondary" />
-              </motion.div>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4">
-              {tools.map((tool, index) => {
-                const ToolIcon = tool.icon
+                )
+              })}
+              {/* Duplicate set for seamless loop */}
+              {featuredTechs.map((tech, index) => {
+                const TechIcon = tech.icon
                 return (
-                  <motion.div
-                    key={tool.name}
-                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="relative group/tool"
+                  <div
+                    key={`tech-2-${index}`}
+                    className="flex-shrink-0 glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer min-w-[180px]"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover/tool:opacity-20 blur-xl transition-opacity duration-300"></div>
-                    <div className="relative flex items-center gap-3 px-6 py-3 glass-card rounded-xl hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
-                      <ToolIcon className="w-6 h-6 text-gray-400 group-hover/tool:text-primary transition-colors duration-300" />
-                      <span className="text-gray-300 font-mono font-medium group-hover/tool:text-white transition-colors">
-                        {tool.name}
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="relative">
+                        <div className={`absolute inset-0 ${tech.bgColor} blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500`}></div>
+                        {TechIcon ? (
+                          <TechIcon className={`w-12 h-12 ${tech.color} group-hover:scale-110 transition-transform duration-300 relative z-10`} />
+                        ) : (
+                          <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${tech.gradientColor} flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                            <Code2 className="w-6 h-6 text-white" />
+                          </div>
+                        )}
+                      </div>
+                      <span className="text-gray-700 font-mono text-sm group-hover:text-black transition-colors font-medium text-center">
+                        {tech.name}
                       </span>
+                      <div className="w-full bg-black/5 h-1 rounded-full overflow-hidden">
+                        <div 
+                          className={`h-full bg-gradient-to-r ${tech.gradientColor} rounded-full`}
+                          style={{ width: `${tech.level}%` }}
+                        />
+                      </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )
               })}
             </div>
           </div>
+
+          {/* Add CSS for animation */}
+          <style>{`
+            @keyframes scroll {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+            .animate-scroll {
+              animation: scroll 30s linear infinite;
+            }
+            .animate-scroll:hover {
+              animation-play-state: paused;
+            }
+            @media (max-width: 768px) {
+              .animate-scroll {
+                animation-duration: 15s;
+              }
+            }
+          `}</style>
         </motion.div>
 
-        {/* Additional Skills Section */}
+        {/* Tools & Technologies - Infinite Scroll */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 overflow-hidden"
+        >
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            >
+              <Zap className="w-6 h-6 text-black" />
+            </motion.div>
+            <h3 className="text-2xl font-bold gradient-text font-mono">
+              {t.skills.toolsTitle}
+            </h3>
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            >
+              <Terminal className="w-6 h-6 text-black" />
+            </motion.div>
+          </div>
+
+          {/* Infinite Scroll Container */}
+          <div className="relative">
+            {/* Gradient overlays for fade effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+            {/* Scrolling content - Reverse direction */}
+            <div className="flex gap-4 animate-scroll-reverse">
+              {/* First set of tools */}
+              {tools.map((tool, index) => {
+                const ToolIcon = tool.icon
+                return (
+                  <div
+                    key={`tool-1-${index}`}
+                    className="flex-shrink-0 glass-card px-6 py-4 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3 min-w-[140px]">
+                      <ToolIcon className={`w-8 h-8 ${tool.color} group-hover:scale-110 transition-transform duration-300`} />
+                      <span className="text-black font-mono font-medium whitespace-nowrap">
+                        {tool.name}
+                      </span>
+                    </div>
+                  </div>
+                )
+              })}
+              {/* Duplicate set for seamless loop */}
+              {tools.map((tool, index) => {
+                const ToolIcon = tool.icon
+                return (
+                  <div
+                    key={`tool-2-${index}`}
+                    className="flex-shrink-0 glass-card px-6 py-4 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3 min-w-[140px]">
+                      <ToolIcon className={`w-8 h-8 ${tool.color} group-hover:scale-110 transition-transform duration-300`} />
+                      <span className="text-black font-mono font-medium whitespace-nowrap">
+                        {tool.name}
+                      </span>
+                    </div>
+                  </div>
+                )
+              })}
+              {/* Triple set for smoother loop */}
+              {tools.map((tool, index) => {
+                const ToolIcon = tool.icon
+                return (
+                  <div
+                    key={`tool-3-${index}`}
+                    className="flex-shrink-0 glass-card px-6 py-4 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3 min-w-[140px]">
+                      <ToolIcon className={`w-8 h-8 ${tool.color} group-hover:scale-110 transition-transform duration-300`} />
+                      <span className="text-black font-mono font-medium whitespace-nowrap">
+                        {tool.name}
+                      </span>
+                    </div>
+                  </div>
+                )
+              })}
+              {/* Fourth set for even smoother loop */}
+              {tools.map((tool, index) => {
+                const ToolIcon = tool.icon
+                return (
+                  <div
+                    key={`tool-4-${index}`}
+                    className="flex-shrink-0 glass-card px-6 py-4 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3 min-w-[140px]">
+                      <ToolIcon className={`w-8 h-8 ${tool.color} group-hover:scale-110 transition-transform duration-300`} />
+                      <span className="text-black font-mono font-medium whitespace-nowrap">
+                        {tool.name}
+                      </span>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Add CSS for reverse animation */}
+          <style>{`
+            @keyframes scroll-reverse {
+              0% {
+                transform: translateX(-50%);
+              }
+              100% {
+                transform: translateX(0);
+              }
+            }
+            .animate-scroll-reverse {
+              animation: scroll-reverse 25s linear infinite;
+            }
+            .animate-scroll-reverse:hover {
+              animation-play-state: paused;
+            }
+            @media (max-width: 768px) {
+              .animate-scroll-reverse {
+                animation-duration: 12.5s;
+              }
+            }
+          `}</style>
+        </motion.div>
+
+        {/* Additional Skills Section - Infinite Scroll */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-12"
+          className="mt-12 overflow-hidden"
         >
           <div className="flex items-center justify-center gap-2 mb-8">
-            <Brain className="w-5 h-5 text-secondary" />
-            <h3 className="text-xl font-semibold text-secondary font-mono">
+            <Brain className="w-5 h-5 text-black" />
+            <h3 className="text-xl font-semibold text-black font-mono">
               {language === 'en' ? 'Additional Expertise' : 'Chuyên Môn Bổ Sung'}
             </h3>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {additionalSkills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card p-5 rounded-xl hover:border-secondary/50 transition-all duration-300 group"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="mt-1">
-                    <Cpu className="w-5 h-5 text-secondary group-hover:text-primary transition-colors" />
+          {/* Infinite Scroll Container */}
+          <div className="relative">
+            {/* Gradient overlays for fade effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+            {/* Scrolling content - Same direction as Core Technologies */}
+            <div className="flex gap-4 animate-scroll-slow">
+              {/* First set of skills */}
+              {additionalSkills.map((skill, index) => {
+                const SkillIcon = skillIcons[index]?.icon || Cpu
+                return (
+                  <div
+                    key={`skill-1-${index}`}
+                    className="flex-shrink-0 glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer min-w-[320px] max-w-[320px]"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-black/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-black/10">
+                          <SkillIcon className="w-5 h-5 text-black" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-black font-mono font-semibold mb-2 group-hover:text-gray-800 transition-colors">
+                          {skill.name}
+                        </h4>
+                        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                          {skill.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-white font-mono font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {skill.name}
-                    </h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {skill.description}
-                    </p>
+                )
+              })}
+              {/* Duplicate set for seamless loop */}
+              {additionalSkills.map((skill, index) => {
+                const SkillIcon = skillIcons[index]?.icon || Cpu
+                return (
+                  <div
+                    key={`skill-2-${index}`}
+                    className="flex-shrink-0 glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer min-w-[320px] max-w-[320px]"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-black/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-black/10">
+                          <SkillIcon className="w-5 h-5 text-black" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-black font-mono font-semibold mb-2 group-hover:text-gray-800 transition-colors">
+                          {skill.name}
+                        </h4>
+                        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                          {skill.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                )
+              })}
+            </div>
           </div>
+
+          {/* Add CSS for slower animation */}
+          <style>{`
+            @keyframes scroll-slow {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+            .animate-scroll-slow {
+              animation: scroll-slow 40s linear infinite;
+            }
+            .animate-scroll-slow:hover {
+              animation-play-state: paused;
+            }
+            @media (max-width: 768px) {
+              .animate-scroll-slow {
+                animation-duration: 20s;
+              }
+            }
+          `}</style>
         </motion.div>
       </div>
     </section>

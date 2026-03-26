@@ -10,8 +10,8 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #ffffff 100%);
+  color: #000000;
   overflow-x: hidden;
 }
 
@@ -39,27 +39,32 @@ html {
   }
 }
 
+@keyframes slide-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @layer utilities {
   .glow-text {
-    text-shadow: 0 0 20px rgba(0, 245, 212, 0.5);
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
 
   .glow-box {
-    box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
 
   .glow-purple {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   }
 
   .glass-card {
-    background: rgba(22, 33, 62, 0.4);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #8b5cf6 0%, #00f5d4 100%);
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -71,5 +76,13 @@ html {
 
   .animate-spin-slow {
     animation: spin-slow 8s linear infinite;
+  }
+
+  .animate-slide-left {
+    animation: slide-left 40s linear infinite;
+  }
+  
+  .animate-slide-left:hover {
+    animation-direction: reverse;
   }
 }
