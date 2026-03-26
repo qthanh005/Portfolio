@@ -5,6 +5,7 @@ export const translations = {
       about: 'About',
       skills: 'Skills',
       projects: 'Projects',
+      services: 'Services',
       contact: 'Contact'
     },
 
@@ -160,6 +161,67 @@ export const translations = {
       }
     },
 
+    // Services Section
+    services: {
+      title: 'MY',
+      titleHighlight: 'SERVICES',
+      description: 'Professional web development services tailored to your needs.',
+      packages: {
+        portfolio: {
+          name: 'Portfolio',
+          price: '500k',
+          baseDesc: 'Basic portfolio or resume website to showcase your work.',
+          features: [
+            '1 Page limit',
+            'Pre-made template',
+            'Responsive design'
+          ]
+        },
+        landing: {
+          name: 'Landing Page',
+          price: '500k',
+          baseDesc: 'Basic landing page for marketing.',
+          features: [
+            'Basic layout',
+            'Contact form',
+            'Mobile friendly'
+          ],
+          upsell: {
+            title: 'Premium Upgrade (+1 - 2M)',
+            desc: 'Higher quality design, custom animations, and better conversion optimization.'
+          }
+        },
+        ecommerce: {
+          name: 'E-Commerce',
+          price: '2M',
+          baseDesc: 'Basic online store setup.',
+          features: [
+            'Custom UI',
+            'Product listing',
+            'Contact/Order link'
+          ],
+          upsell: {
+            title: 'Advanced Features (+500k - 1M)',
+            desc: 'Add advanced product filtering and intelligent shopping cart system.'
+          }
+        },
+        webapp: {
+          name: 'Web App Backend',
+          price: '4M',
+          baseDesc: 'Basic web application with database.',
+          features: [
+            'User Authentication (Login)',
+            'Basic CRUD operations',
+            'Database integration'
+          ],
+          upsell: {
+            title: 'Admin Dashboard (+1 - 3M)',
+            desc: 'Full admin dashboard, complex analytics, and role-based access control.'
+          }
+        }
+      }
+    },
+
     // Contact Section
     contact: {
       title: 'GET IN',
@@ -206,6 +268,7 @@ export const translations = {
       about: 'Về Tôi',
       skills: 'Kỹ Năng',
       projects: 'Dự Án',
+      services: 'Dịch Vụ',
       contact: 'Liên Hệ'
     },
 
@@ -357,6 +420,67 @@ export const translations = {
         desktop: {
           title: 'BankingApp',
           description: 'Ứng dụng ngân hàng di động hiện đại được xây dựng với Android (Java/Kotlin) và Firebase. Cung cấp giải pháp quản lý tài chính toàn diện với xác thực bảo mật đa lớp (PIN, sinh trắc học), quản lý tài khoản và thẻ, lịch sử giao dịch chi tiết, chuyển tiền nhanh chóng, thanh toán hóa đơn, quét mã QR, thông báo đẩy thời gian thực, và giao diện người dùng trực quan. Hệ thống được thiết kế an toàn, ổn định và tuân thủ các chuẩn bảo mật ngân hàng.'
+        }
+      }
+    },
+
+    // Services Section
+    services: {
+      title: 'DỊCH VỤ',
+      titleHighlight: 'CỦA TÔI',
+      description: 'Cung cấp các giải pháp phát triển web chuyên nghiệp phù hợp với nhu cầu và ngân sách của bạn.',
+      packages: {
+        portfolio: {
+          name: 'Portfolio',
+          price: '500k',
+          baseDesc: 'Website hồ sơ năng lực cá nhân, giữ được chất lượng ổn định.',
+          features: [
+            'Giới hạn 1 trang',
+            'Sử dụng các template có sẵn',
+            'Tối ưu hiển thị đa cấu hình'
+          ]
+        },
+        landing: {
+          name: 'Landing Page',
+          price: '500k',
+          baseDesc: 'Gói cơ bản (Basic) đáp ứng nhu cầu quảng bá nhanh.',
+          features: [
+            'Thiết kế layout cơ bản',
+            'Form tư vấn / thu thập Data',
+            'Responsive thiết bị'
+          ],
+          upsell: {
+            title: 'Gói Chuẩn Hơn (+1 - 2 triệu)',
+            desc: 'Nâng cấp UI/UX cao cấp, hiệu ứng chuyên nghiệp và tăng chuyển đổi mua hàng cao.'
+          }
+        },
+        ecommerce: {
+          name: 'Web Bán Hàng',
+          price: '2 triệu',
+          baseDesc: 'Gói cơ bản (Basic) cho thương mại điện tử nhỏ.',
+          features: [
+            'Thiết kế giao diện (UI)',
+            'Danh sách sản phẩm (List)',
+            'Thông tin liên hệ đặt hàng'
+          ],
+          upsell: {
+            title: 'Option Mở Rộng (+500k - 1 triệu)',
+            desc: 'Bổ sung ngay tính năng Lọc (Filter) thông minh và Hệ thống Giỏ hàng (Cart).'
+          }
+        },
+        webapp: {
+          name: 'Web Có Backend',
+          price: '4 triệu',
+          baseDesc: 'Hệ thống ứng dụng Web cơ bản.',
+          features: [
+            'Tính năng Đăng nhập (Login)',
+            'Thao tác dữ liệu (CRUD đơn giản)',
+            'Tích hợp kết nối Database'
+          ],
+          upsell: {
+            title: 'Nâng Cấp Quản Trị (+1 - 3 triệu)',
+            desc: 'Bao gồm Dashboard hệ thống phân tích và Phân quyền sử dụng (Role-based access).'
+          }
         }
       }
     },

@@ -8,26 +8,7 @@ import PDFViewer from './PDFViewer'
 const Hero = () => {
   const { language } = useLanguage()
   const t = translations[language]
-  const [textIndex, setTextIndex] = useState(0)
-  const [showMain, setShowMain] = useState(false)
   const [isPDFOpen, setIsPDFOpen] = useState(false)
-
-  const initSequence = [
-    t.hero.initSequence.init,
-    t.hero.initSequence.loading,
-    t.hero.initSequence.connected
-  ]
-
-  useEffect(() => {
-    if (textIndex < initSequence.length) {
-      const timer = setTimeout(() => {
-        setTextIndex(textIndex + 1)
-      }, 800)
-      return () => clearTimeout(timer)
-    } else {
-      setTimeout(() => setShowMain(true), 400)
-    }
-  }, [textIndex, initSequence.length])
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -35,31 +16,17 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-primary/10"></div>
 
       <div className="max-w-7xl mx-auto px-6 z-10">
-        {!showMain ? (
-          <div className="space-y-4 font-mono text-center">
-            {initSequence.slice(0, textIndex).map((text, index) => (
-              <motion.p
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-primary text-lg"
-              >
-                &gt; {text}
-              </motion.p>
-            ))}
-          </div>
-        ) : (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-12"
+            transition={{ duration: 1, delay: 1.8 }}
+            className="flex flex-col md:flex-row items-center justify-center gap-12 pt-20"
           >
             {/* Avatar Section */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 2.0 }}
               className="relative"
             >
               <div className="w-64 h-64 md:w-80 md:h-80 relative">
@@ -101,7 +68,7 @@ const Hero = () => {
               <motion.div
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 2.2 }}
               >
                 <p className="text-black font-mono text-sm mb-2">{t.hero.greeting}</p>
                 <h1 className="text-5xl md:text-7xl font-bold">
@@ -114,7 +81,7 @@ const Hero = () => {
               <motion.p
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 2.3 }}
                 className="text-xl md:text-2xl text-gray-600 font-mono"
               >
                 {t.hero.role}
@@ -123,7 +90,7 @@ const Hero = () => {
               <motion.p
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 2.4 }}
                 className="text-gray-700 text-lg leading-relaxed"
               >
                 {t.hero.description}
@@ -132,7 +99,7 @@ const Hero = () => {
               <motion.div
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 2.5 }}
                 className="flex flex-wrap gap-4 justify-center md:justify-start pt-4"
               >
                 <a
@@ -162,7 +129,7 @@ const Hero = () => {
               <motion.div
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 2.6 }}
                 className="flex gap-4 justify-center md:justify-start pt-4"
               >
                 <a href="https://github.com/qthanh2005" target="_blank" rel="noopener noreferrer"
@@ -180,7 +147,6 @@ const Hero = () => {
               </motion.div>
             </div>
           </motion.div>
-        )}
       </div>
 
       {/* PDF Viewer Modal */}
