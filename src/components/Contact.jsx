@@ -179,16 +179,8 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ rotate: [0, 360], scale: [1, 1.2, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 -right-40 w-96 h-96 bg-black/5 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ rotate: [360, 0], scale: [1, 1.3, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gray-600/5 rounded-full blur-3xl"
-        />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-black/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gray-600/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -238,10 +230,10 @@ const Contact = () => {
                 href={contact.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="relative glass-card p-8 rounded-3xl border border-black/10 hover:border-black/30 transition-all duration-500 group overflow-hidden"
@@ -277,10 +269,10 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-5 gap-8">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="lg:col-span-3 space-y-6"
           >
             <div className="glass-card p-8 rounded-3xl border border-black/10 hover:border-black/20 transition-all duration-500 relative overflow-hidden group">
@@ -325,8 +317,8 @@ const Contact = () => {
                   ].map((item, index) => (
                     <motion.div
                       key={item.label}
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.1 + (index * 0.1) }}
                       whileHover={{ x: 5 }}
@@ -444,10 +436,10 @@ const Contact = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="lg:col-span-2"
           >
             <div className="glass-card p-6 rounded-3xl border border-black/10 hover:border-black/20 transition-all duration-500 sticky top-24 relative overflow-hidden group">
@@ -496,14 +488,8 @@ const Contact = () => {
                     { label: t.contact.form.name, placeholder: t.contact.form.namePlaceholder, type: 'text', name: 'name' },
                     { label: t.contact.form.email, placeholder: t.contact.form.emailPlaceholder, type: 'email', name: 'email' },
                     { label: t.contact.form.subject, placeholder: t.contact.form.subjectPlaceholder, type: 'text', name: 'title' }
-                  ].map((field, index) => (
-                    <motion.div
-                      key={field.label}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.05 * index }}
-                    >
+                  ].map((field) => (
+                    <div key={field.label}>
                       <label className="block text-black text-xs font-mono mb-1.5 font-medium">
                         {field.label}
                       </label>
@@ -516,15 +502,10 @@ const Contact = () => {
                         className="w-full px-4 py-3 glass-card rounded-xl border-2 border-black/10 focus:border-black focus:outline-none focus:ring-2 focus:ring-black/10 transition-all duration-300 text-black text-sm placeholder-gray-500 hover:border-black/20"
                         required
                       />
-                    </motion.div>
+                    </div>
                   ))}
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.15 }}
-                  >
+                  <div>
                     <label className="block text-black text-xs font-mono mb-1.5 font-medium">
                       {t.contact.form.message}
                     </label>
@@ -537,7 +518,7 @@ const Contact = () => {
                       className="w-full px-4 py-3 glass-card rounded-xl border-2 border-black/10 focus:border-black focus:outline-none focus:ring-2 focus:ring-black/10 transition-all duration-300 resize-none text-black text-sm placeholder-gray-500 hover:border-black/20"
                       required
                     ></textarea>
-                  </motion.div>
+                  </div>
 
                   <AnimatePresence>
                     {status.message && (

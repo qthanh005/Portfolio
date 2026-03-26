@@ -170,6 +170,9 @@ export const translations = {
         portfolio: {
           name: 'Portfolio',
           price: '500k',
+          originalPrice: '750k',
+          badge: 'BEST SELLER -30%',
+          deliveryTime: '1 - 2 days',
           baseDesc: 'Basic portfolio or resume website to showcase your work.',
           features: [
             '1 Page limit',
@@ -180,6 +183,9 @@ export const translations = {
         landing: {
           name: 'Landing Page',
           price: '500k',
+          originalPrice: '750k',
+          badge: 'FLASH SALE -30%',
+          deliveryTime: '2 - 3 days',
           baseDesc: 'Basic landing page for marketing.',
           features: [
             'Basic layout',
@@ -193,7 +199,10 @@ export const translations = {
         },
         ecommerce: {
           name: 'E-Commerce',
-          price: '2M',
+          price: 'From 3M',
+          badge: '💎 POPULAR',
+          negotiable: 'Price is negotiable',
+          deliveryTime: '5 - 7 days',
           baseDesc: 'Basic online store setup.',
           features: [
             'Custom UI',
@@ -206,8 +215,11 @@ export const translations = {
           }
         },
         webapp: {
-          name: 'Web App Backend',
-          price: '4M',
+          name: 'Advanced Website',
+          price: 'From 5M',
+          badge: '👑 PREMIUM',
+          negotiable: 'Price is negotiable',
+          deliveryTime: 'From 10 days',
           baseDesc: 'Basic web application with database.',
           features: [
             'User Authentication (Login)',
@@ -220,6 +232,72 @@ export const translations = {
           }
         }
       }
+    },
+
+    // Testimonials Section
+    testimonials: {
+      title: 'CLIENT',
+      titleHighlight: 'FEEDBACK',
+      description: 'What our clients say about our services.',
+      items: [
+        {
+          id: 1,
+          name: 'Truong Giang',
+          role: 'Portfolio Client',
+          content: 'Fast implementation and website delivery. Very fast and stable website speed. The support team is very enthusiastic.',
+          image: 'https://ui-avatars.com/api/?name=TG&background=0D8ABC&color=fff'
+        },
+        {
+          id: 2,
+          name: 'Mr. Dung',
+          role: 'E-Commerce Client',
+          content: 'We send our thanks to Thanh. Thank you personally for your enthusiastic support to complete the project.',
+          image: 'https://ui-avatars.com/api/?name=D&background=f97316&color=fff'
+        },
+        {
+          id: 3,
+          name: 'Tran Thuy Linh',
+          role: 'Landing Page Client',
+          content: 'Professional website design service, meticulous from layout, ideas, to appropriate and modern colors.',
+          image: 'https://ui-avatars.com/api/?name=TL&background=ec4899&color=fff'
+        },
+        {
+          id: 4,
+          name: 'Le Cong Du',
+          role: 'Advanced Website Client',
+          content: 'I needed a new direction for my business, so I found you. You advised me on a complete digital transformation solution.',
+          image: 'https://ui-avatars.com/api/?name=CD&background=8b5cf6&color=fff'
+        }
+      ]
+    },
+
+    // FAQ Section
+    faq: {
+      title: 'COMMON',
+      titleHighlight: 'QUESTIONS',
+      description: 'Find answers to the most frequently asked questions about our web development services.',
+      items: [
+        {
+          question: 'Does the price include Domain and Hosting?',
+          answer: 'My service quotes cover only design and development costs. However, I provide full consultation for purchasing domains and hosting at the best prices, and I offer free deployment of the system to your server.'
+        },
+        {
+          question: 'How long is the warranty period for the source code?',
+          answer: 'All websites developed by me come with a 1-year bug-fixing warranty from the handover date for any system-related issues. During the first month, I also provide free support for minor text/image adjustments.'
+        },
+        {
+          question: 'If I lack technical skills, can I still manage the website?',
+          answer: 'Absolutely! All website packages include an intuitive, user-friendly Admin Panel. I will also provide clear documentation or a video tutorial to guide you through managing your content effortlessly.'
+        },
+        {
+          question: 'What is your payment policy?',
+          answer: 'To ensure mutual commitment, payments are typically split into two stages: A 50% deposit before design and development begins, and the remaining 50% upon completion, demo approval, and prior to final source code handover.'
+        },
+        {
+          question: 'Will the website be SEO-friendly and responsive on mobile?',
+          answer: 'Definitely. 100% of the websites I build comply with the latest Google SEO standards, are optimized for blazing-fast loading speeds, and are fully responsive across all devices (Mobile, Tablet, Desktop).'
+        }
+      ]
     },
 
     // Contact Section
@@ -432,7 +510,10 @@ export const translations = {
       packages: {
         portfolio: {
           name: 'Portfolio',
-          price: '500k',
+          price: '500.000đ',
+          originalPrice: '750.000đ',
+          badge: '🔥 BEST SELLER',
+          deliveryTime: 'Bàn giao: 1 - 2 ngày',
           baseDesc: 'Website hồ sơ năng lực cá nhân, giữ được chất lượng ổn định.',
           features: [
             'Giới hạn 1 trang',
@@ -442,7 +523,10 @@ export const translations = {
         },
         landing: {
           name: 'Landing Page',
-          price: '500k',
+          price: '500.000đ',
+          originalPrice: '750.000đ',
+          badge: 'FLASH SALE -30%',
+          deliveryTime: 'Bàn giao: 2 - 3 ngày',
           baseDesc: 'Gói cơ bản (Basic) đáp ứng nhu cầu quảng bá nhanh.',
           features: [
             'Thiết kế layout cơ bản',
@@ -456,7 +540,10 @@ export const translations = {
         },
         ecommerce: {
           name: 'Web Bán Hàng',
-          price: '2 triệu',
+          price: 'Từ 3 triệu',
+          badge: '💎 PHỔ BIẾN',
+          negotiable: 'Giá có thể thương lượng thêm',
+          deliveryTime: 'Thoả thuận từ 5 - 7 ngày',
           baseDesc: 'Gói cơ bản (Basic) cho thương mại điện tử nhỏ.',
           features: [
             'Thiết kế giao diện (UI)',
@@ -469,8 +556,11 @@ export const translations = {
           }
         },
         webapp: {
-          name: 'Web Có Backend',
-          price: '4 triệu',
+          name: 'Website Nâng Cao',
+          price: 'Từ 5 triệu',
+          badge: '👑 CAO CẤP',
+          negotiable: 'Giá có thể thương lượng thêm',
+          deliveryTime: 'Chi tiết theo dự án (Từ 10 ngày)',
           baseDesc: 'Hệ thống ứng dụng Web cơ bản.',
           features: [
             'Tính năng Đăng nhập (Login)',
@@ -483,6 +573,100 @@ export const translations = {
           }
         }
       }
+    },
+
+    // Testimonials Section
+    testimonials: {
+      title: 'ĐÁNH GIÁ',
+      titleHighlight: 'KHÁCH HÀNG',
+      description: 'Những lời nhận xét chân thành từ các đối tác và khách hàng đã làm việc cùng tôi.',
+      items: [
+        {
+          id: 1,
+          name: 'Anh Trường Giang',
+          role: 'Khách hàng dự án Portfolio',
+          content: 'Thời gian triển khai và bàn giao website nhanh chóng, Website tốc độ rất nhanh và ổn định. Đội ngũ support rất nhiệt tình và chu đáo.',
+          image: 'https://ui-avatars.com/api/?name=TG&background=0D8ABC&color=fff'
+        },
+        {
+          id: 2,
+          name: 'Anh Dũng',
+          role: 'Khách hàng dự án Web Bán Hàng',
+          content: 'Công Ty chúng tôi gửi lời cảm ơn. Cảm ơn cá nhân bạn Thành đã nhiệt tình hỗ trợ Sơn Hà hoàn thiện hệ thống xuất sắc.',
+          image: 'https://ui-avatars.com/api/?name=D&background=f97316&color=fff'
+        },
+        {
+          id: 3,
+          name: 'Chị Trần Thùy Linh',
+          role: 'Khách hàng dự án Landing Page',
+          content: 'Dịch vụ thiết kế website chuyên nghiệp, tỉ mỉ từ khâu lên bố cục, ý tưởng đến, màu sắc phù hợp, hiện đại.',
+          image: 'https://ui-avatars.com/api/?name=TL&background=ec4899&color=fff'
+        },
+        {
+          id: 4,
+          name: 'Anh Lê Công Du',
+          role: 'Khách hàng dự án Website Nâng Cao',
+          content: 'Tôi cần tìm hướng đi mới cho doanh nghiệp, nên đã tìm đến nền tảng này. Các bạn đã tư vấn cho tôi bộ giải pháp hệ thống số rất tốt.',
+          image: 'https://ui-avatars.com/api/?name=CD&background=8b5cf6&color=fff'
+        },
+        {
+          id: 5,
+          name: 'Anh Lê',
+          role: 'Khách hàng dự án Web Bán Hàng',
+          content: 'Website là nền tảng cốt lõi để bán hàng online, đã giúp chúng tôi tiếp cận được nhiều khách hàng mới hơn qua các kênh online.',
+          image: 'https://ui-avatars.com/api/?name=AL&background=14b8a6&color=fff'
+        },
+        {
+          id: 6,
+          name: 'Anh Trọng',
+          role: 'Khách hàng dự án Portfolio',
+          content: 'Giao diện web giúp định vị được thương hiệu công ty và giới thiệu dịch vụ sản phẩm đầy đủ và tiếp cận được nhiều khách hàng hơn.',
+          image: 'https://ui-avatars.com/api/?name=Tr&background=3b82f6&color=fff'
+        },
+        {
+          id: 7,
+          name: 'Anh Văn Vượng',
+          role: 'Khách hàng dự án Website Nâng Cao',
+          content: 'Hệ thống cung cấp nhiều tính năng hữu ích như quản lý phòng trọ, hóa đơn, và có thiết kế thân thiện, dễ sử dụng cho mọi người.',
+          image: 'https://ui-avatars.com/api/?name=VV&background=10b981&color=fff'
+        },
+        {
+          id: 8,
+          name: 'Bảo Trâm',
+          role: 'Khách hàng dự án Landing Page',
+          content: 'Dịch vụ vận hành luôn hoạt động rất ổn định, chạy nhanh, đáp ứng kịp tiến độ kinh doanh của chúng tôi trong thời gian qua.',
+          image: 'https://ui-avatars.com/api/?name=BT&background=f43f5e&color=fff'
+        }
+      ]
+    },
+
+    // FAQ Section
+    faq: {
+      title: 'CÂU HỎI',
+      titleHighlight: 'THƯỜNG GẶP',
+      description: 'Giải đáp những thắc mắc phổ biến nhất của khách hàng trước khi bắt đầu dự án.',
+      items: [
+        {
+          question: 'Giá trên đã bao gồm Tên miền và Hosting chưa?',
+          answer: 'Báo giá dịch vụ chỉ bao gồm chi phí thiết kế và lập trình (Source Code). Tuy nhiên, tôi sẽ hỗ trợ tư vấn mua tên miền và hosting với giá tốt nhất, đồng thời miễn phí công cài đặt hệ thống lên Server để trang web chạy hoàn chỉnh.'
+        },
+        {
+          question: 'Thời gian bảo hành mã nguồn là bao lâu?',
+          answer: 'Toàn bộ website do tôi phát triển đều được bảo hành mã nguồn (Fix bug) trong vòng 1 năm kể từ ngày nghiệm thu đối với các lỗi phát sinh do hệ thống. Trong tháng đầu tiên sau khi vận hành, tôi hỗ trợ miễn phí chỉnh sửa text, ảnh nhỏ hoặc tinh chỉnh tỉ lệ giao diện.'
+        },
+        {
+          question: 'Tôi không rành về kỹ thuật thì có quản lý web được không?',
+          answer: 'Hoàn toàn được! Gói Web Bán Hàng và Nâng Cao được tích hợp trang Quản trị (Admin Panel) với giao diện tiếng Việt cực kỳ trực quan, dễ như lướt Facebook. Tôi sẽ cung cấp tài liệu chi tiết hoặc video hướng dẫn cụ thể sau khi bàn giao để bạn làm chủ hệ thống.'
+        },
+        {
+          question: 'Chính sách thanh toán như thế nào?',
+          answer: 'Để đảm bảo cam kết công việc, dự án sẽ được chia làm 2 giai đoạn thanh toán: Tạm ứng 50% trước khi thiết kế giao diện và 50% còn lại sẽ được thanh toán sau khi hoàn thiện đầy đủ, duyệt demo, đẩy lên tên miền thực tế và bàn giao Source Code.'
+        },
+        {
+          question: 'Website có dùng được cho điện thoại và hỗ trợ chuẩn SEO không?',
+          answer: 'Chắc chắn rồi. 100% website được bộ phận của tôi thiết kế tuân thủ các nguyên tắc chuẩn SEO mới nhất của Google, tối ưu điểm tốc độ tải cực nhanh và cấu trúc UI linh hoạt co giãn hoàn hảo trên cả 3 giao diện Mobile, Tablet và Desktop.'
+        }
+      ]
     },
 
     // Contact Section

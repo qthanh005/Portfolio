@@ -39,6 +39,11 @@ html {
   }
 }
 
+@keyframes slide-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @layer utilities {
   .glow-text {
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -71,5 +76,13 @@ html {
 
   .animate-spin-slow {
     animation: spin-slow 8s linear infinite;
+  }
+
+  .animate-slide-left {
+    animation: slide-left 40s linear infinite;
+  }
+  
+  .animate-slide-left:hover {
+    animation-direction: reverse;
   }
 }
