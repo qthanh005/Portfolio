@@ -275,8 +275,8 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
           >
-            <span className="text-gray-400">&gt;</span>{' '}
-            <span className="inline-block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-pulse">
+            <span className="text-gray-600">&gt;</span>{' '}
+            <span className="inline-block bg-gradient-to-r from-black via-black to-black bg-clip-text text-transparent">
               {t.contact.title}
             </span>{' '}
             <span className="gradient-text">{t.contact.titleHighlight}</span>
@@ -295,7 +295,7 @@ const Contact = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-gray-300 text-lg md:text-xl mb-4 max-w-3xl mx-auto leading-relaxed"
+            className="text-black text-lg md:text-xl mb-4 max-w-3xl mx-auto leading-relaxed"
           >
             {t.contact.description}
           </motion.p>
@@ -349,10 +349,10 @@ const Contact = () => {
 
                   {/* Content */}
                   <div className="text-center">
-                    <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors font-mono">
+                    <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-black transition-colors font-mono">
                       {contact.name}
                     </h3>
-                    <p className="text-gray-400 text-sm md:text-base break-all group-hover:text-gray-300 transition-colors">
+                    <p className="text-black text-sm md:text-base break-all group-hover:text-black transition-colors">
                       {contact.value}
                     </p>
                   </div>
@@ -409,7 +409,7 @@ const Contact = () => {
                     <h3 className="text-3xl lg:text-4xl font-bold font-mono bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                       {t.contact.form.sendMessage}
                     </h3>
-                    <p className="text-gray-400 text-sm mt-1 font-mono">Let's start a conversation </p>
+                    <p className="text-black text-sm mt-1 font-mono">Let's start a conversation </p>
                   </div>
                 </div>
                 <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full" />
@@ -444,7 +444,7 @@ const Contact = () => {
                     transition={{ delay: 0.4 + (index * 0.1) }}
                     className="group/field"
                   >
-                    <label className="block text-gray-300 text-sm font-mono mb-3 group-focus-within/field:text-primary transition-colors font-medium">
+                    <label className="block text-black text-sm font-mono mb-3 group-focus-within/field:text-black transition-colors font-medium">
                       {field.label}
                     </label>
                     <div className="relative">
@@ -454,7 +454,7 @@ const Contact = () => {
                         value={formData[field.name]}
                         onChange={handleChange}
                         placeholder={field.placeholder}
-                        className="w-full px-6 py-4 glass-card rounded-2xl border-2 border-white/5 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all duration-300 text-white placeholder-gray-500 hover:border-white/10 hover:shadow-lg hover:shadow-primary/5 bg-white/5"
+                        className="w-full px-6 py-4 glass-card rounded-2xl border-2 border-black/10 focus:border-black focus:outline-none focus:ring-4 focus:ring-black/10 transition-all duration-300 text-black placeholder-gray-500 hover:border-black/20 hover:shadow-lg bg-white/90"
                         required
                       />
                       <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-focus-within/field:opacity-100 transition-opacity pointer-events-none" />
@@ -469,7 +469,7 @@ const Contact = () => {
                   transition={{ delay: 0.7 }}
                   className="group/field"
                 >
-                  <label className="block text-gray-300 text-sm font-mono mb-3 group-focus-within/field:text-primary transition-colors font-medium">
+                  <label className="block text-black text-sm font-mono mb-3 group-focus-within/field:text-black transition-colors font-medium">
                     {t.contact.form.message}
                   </label>
                   <div className="relative">
@@ -479,7 +479,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder={t.contact.form.messagePlaceholder}
                       rows="5"
-                      className="w-full px-6 py-4 glass-card rounded-2xl border-2 border-white/5 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all duration-300 resize-none text-white placeholder-gray-500 hover:border-white/10 hover:shadow-lg hover:shadow-primary/5 bg-white/5"
+                      className="w-full px-6 py-4 glass-card rounded-2xl border-2 border-black/10 focus:border-black focus:outline-none focus:ring-4 focus:ring-black/10 transition-all duration-300 resize-none text-black placeholder-gray-500 hover:border-black/20 hover:shadow-lg bg-white/90"
                       required
                     ></textarea>
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-focus-within/field:opacity-100 transition-opacity pointer-events-none" />
@@ -651,7 +651,7 @@ const Contact = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold font-mono text-primary mb-8 flex items-center gap-3">
+                <h3 className="text-2xl font-bold font-mono text-black mb-8 flex items-center gap-3">
                   <motion.div
                     className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg"
                     animate={{ rotate: 360 }}
@@ -682,8 +682,8 @@ const Contact = () => {
                         <item.icon className="w-6 h-6 text-white" />
                       </motion.div>
                       <div className="flex-1">
-                        <p className="text-gray-400 text-xs font-mono uppercase tracking-wider">{item.label}</p>
-                        <p className="text-gray-200 text-sm md:text-base font-medium mt-1 group-hover/item:text-primary transition-colors">
+                        <p className="text-black text-xs font-mono uppercase tracking-wider">{item.label}</p>
+                        <p className="text-black text-sm md:text-base font-medium mt-1 group-hover/item:text-black transition-colors">
                           {item.value}
                         </p>
                       </div>
@@ -698,8 +698,8 @@ const Contact = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10">
-                <h3 className="text-xl font-bold font-mono text-primary mb-6 flex items-center gap-3">
-                  <Globe className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold font-mono text-black mb-6 flex items-center gap-3">
+                  <Globe className="w-6 h-6 text-black" />
                   {t.contact.social.title}
                 </h3>
 
@@ -728,10 +728,10 @@ const Contact = () => {
                           <ContactIcon className={`w-5 h-5 ${contact.color}`} />
                         </motion.div>
                         <div className="flex-1">
-                          <p className="text-gray-200 text-sm font-medium group-hover/social:text-primary transition-colors">
+                          <p className="text-black text-sm font-medium group-hover/social:text-black transition-colors">
                             {contact.name}
                           </p>
-                          <p className="text-gray-400 text-xs font-mono mt-1">{contact.value}</p>
+                          <p className="text-black text-xs font-mono mt-1">{contact.value}</p>
                         </div>
                         <motion.div
                           className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover/social:opacity-100"
@@ -762,9 +762,9 @@ const Contact = () => {
                     animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
-                  <h4 className="text-primary font-mono font-bold text-lg">{t.contact.availability.title}</h4>
+                  <h4 className="text-black font-mono font-bold text-lg">{t.contact.availability.title}</h4>
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <p className="text-black text-sm leading-relaxed">
                   {t.contact.availability.description}
                 </p>
               </div>

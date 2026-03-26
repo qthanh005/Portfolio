@@ -103,9 +103,9 @@ const Hero = () => {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                <p className="text-primary font-mono text-sm mb-2">{t.hero.greeting}</p>
+                <p className="text-black font-mono text-sm mb-2">{t.hero.greeting}</p>
                 <h1 className="text-5xl md:text-7xl font-bold">
-                  <span className="text-white">{t.hero.name}</span>
+                  <span className="text-black">{t.hero.name}</span>
                   <br />
                   <span className="gradient-text">{t.hero.surname}</span>
                 </h1>
@@ -115,7 +115,7 @@ const Hero = () => {
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-xl md:text-2xl text-gray-400 font-mono"
+                className="text-xl md:text-2xl text-gray-600 font-mono"
               >
                 {t.hero.role}
               </motion.p>
@@ -124,7 +124,7 @@ const Hero = () => {
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-gray-500 text-lg leading-relaxed"
+                className="text-gray-700 text-lg leading-relaxed"
               >
                 {t.hero.description}
               </motion.p>
@@ -137,21 +137,21 @@ const Hero = () => {
               >
                 <a
                   href="#projects"
-                  className="px-6 py-3 bg-gradient-to-r from-secondary to-primary text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 glow-box flex items-center gap-2"
+                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 flex items-center gap-2"
                 >
                   <Code2 className="w-5 h-5" />
                   {t.hero.viewProjects}
                 </a>
                 <a
                   href="#contact"
-                  className="px-6 py-3 glass-card text-primary font-semibold rounded-lg hover:border-primary transition-all duration-300 flex items-center gap-2"
+                  className="px-6 py-3 glass-card text-black font-semibold rounded-lg hover:border-black transition-all duration-300 flex items-center gap-2"
                 >
                   <Mail className="w-5 h-5" />
                   {t.hero.getInTouch}
                 </a>
                 <button
                   onClick={() => setIsPDFOpen(true)}
-                  className="px-6 py-3 glass-card text-gray-300 font-semibold rounded-lg hover:border-secondary transition-all duration-300 flex items-center gap-2"
+                  className="px-6 py-3 glass-card text-black font-semibold rounded-lg hover:border-gray-600 transition-all duration-300 flex items-center gap-2"
                 >
                   <Download className="w-5 h-5" />
                   {t.hero.resume}
@@ -166,16 +166,16 @@ const Hero = () => {
                 className="flex gap-4 justify-center md:justify-start pt-4"
               >
                 <a href="https://github.com/qthanh2005" target="_blank" rel="noopener noreferrer"
-                   className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:border-primary transition-all duration-300 group">
-                  <Github className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+                   className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:border-black transition-all duration-300 group">
+                  <Github className="w-5 h-5 text-gray-600 group-hover:text-black transition-colors" />
                 </a>
                 <a href="https://www.linkedin.com/in/l%C3%AA-quang-th%C3%A0nh-8664b3331/" target="_blank" rel="noopener noreferrer"
-                   className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:border-primary transition-all duration-300 group">
-                  <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+                   className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:border-black transition-all duration-300 group">
+                  <Linkedin className="w-5 h-5 text-gray-600 group-hover:text-black transition-colors" />
                 </a>
                 <a href="mailto:lequangthanhh05@gmail.com"
-                   className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:border-primary transition-all duration-300 group">
-                  <Mail className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+                   className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:border-black transition-all duration-300 group">
+                  <Mail className="w-5 h-5 text-gray-600 group-hover:text-black transition-colors" />
                 </a>
               </motion.div>
             </div>

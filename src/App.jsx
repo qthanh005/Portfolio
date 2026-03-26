@@ -25,7 +25,7 @@ function App() {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-dark text-white relative overflow-hidden">
+      <div className="min-h-screen bg-white text-black relative overflow-hidden">
         <Background3D />
         <Particles />
         <div className="relative z-10">

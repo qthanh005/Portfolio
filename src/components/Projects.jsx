@@ -123,9 +123,9 @@ const Projects = () => {
           className="text-center mb-6"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-3 font-mono">
-            <span className="text-gray-400">&gt;</span> {t.projects.title} <span className="gradient-text">{t.projects.titleHighlight}</span>
+            <span className="text-gray-600">&gt;</span> {t.projects.title} <span className="gradient-text">{t.projects.titleHighlight}</span>
           </h2>
-          <div className="w-16 h-0.5 bg-primary mx-auto"></div>
+          <div className="w-16 h-0.5 bg-black mx-auto"></div>
         </motion.div>
 
         {/* Bento Grid Layout */}
@@ -171,10 +171,10 @@ const Projects = () => {
               <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm p-4">
                 <div className="flex items-start gap-3">
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-bold text-white mb-2 font-mono">
+                    <h3 className="text-lg font-bold text-black mb-2 font-mono">
                       {projects[1].title}
                     </h3>
-                    <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+                    <p className="text-black text-sm mb-3 line-clamp-2">
                       {projects[1].description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-3">
@@ -243,10 +243,10 @@ const Projects = () => {
 
               {/* Content Section */}
               <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm p-4">
-                <h3 className="text-lg font-bold text-white mb-2 font-mono">
+                <h3 className="text-lg font-bold text-black mb-2 font-mono">
                   {projects[0].title}
                 </h3>
-                <p className="text-gray-300 text-sm mb-3 line-clamp-3">
+                <p className="text-black text-sm mb-3 line-clamp-3">
                   {projects[0].description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -314,7 +314,7 @@ const Projects = () => {
 
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                  <h3 className="text-base font-bold text-white mb-2 font-mono">
+                  <h3 className="text-base font-bold text-black mb-2 font-mono">
                     {projects[2].title}
                   </h3>
                   <div className="flex gap-2">
@@ -382,19 +382,19 @@ const Projects = () => {
                         <BankingAppIcon className="w-5 h-5" textSize="text-[10px]" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg lg:text-xl font-bold text-white mb-3 font-mono">
+                        <h3 className="text-lg lg:text-xl font-bold text-black mb-3 font-mono">
                           {projects[3].title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-gray-300 text-sm lg:text-base mb-4 line-clamp-3 lg:line-clamp-4">
+                        <p className="text-black text-sm lg:text-base mb-4 line-clamp-3 lg:line-clamp-4">
                           {projects[3].description}
                         </p>
 
                         {/* Features List */}
                         <div className="mb-4">
                           <h4 className="text-orange-400 font-bold text-sm mb-2 font-mono">Key Features:</h4>
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 text-xs lg:text-sm text-gray-300">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 text-xs lg:text-sm text-black">
                             <div className="flex items-center gap-2">
                               <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
                               <span>Biometric Authentication</span>
@@ -432,7 +432,7 @@ const Projects = () => {
                   <div className="flex gap-3">
                     <a
                       href={projects[3].github}
-                      className="flex items-center gap-2 px-4 py-2 text-sm font-mono text-primary border border-primary/30 rounded-lg hover:bg-primary/10 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 text-sm font-mono text-black border border-black/30 rounded-lg hover:bg-black/10 transition-colors"
                     >
                       <Github className="w-4 h-4" />
                       Source Code
@@ -463,7 +463,7 @@ const Projects = () => {
             href="https://github.com/qthanh2005"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 text-primary border-2 border-primary/30 rounded-lg hover:bg-primary/10 transition-colors font-mono group text-sm"
+            className="inline-flex items-center gap-2 px-8 py-3 text-black border-2 border-black/30 rounded-lg hover:bg-black/10 transition-colors font-mono group text-sm"
           >
             <Github className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             {t.projects.viewAllGithub}

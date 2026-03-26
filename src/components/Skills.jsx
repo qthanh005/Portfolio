@@ -81,7 +81,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold mb-4 text-center font-mono"
         >
-          <span className="text-gray-400">&gt;</span> {t.skills.title} <span className="gradient-text">{t.skills.titleHighlight}</span>
+          <span className="text-gray-600">&gt;</span> {t.skills.title} <span className="gradient-text">{t.skills.titleHighlight}</span>
         </motion.h2>
 
         <motion.p
@@ -89,7 +89,7 @@ const Skills = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-gray-400 text-center mb-12 max-w-2xl mx-auto"
+          className="text-gray-700 text-center mb-12 max-w-2xl mx-auto"
         >
           {language === 'en'
             ? 'Proficient in modern technologies and frameworks for building scalable applications'
@@ -105,11 +105,11 @@ const Skills = () => {
           className="mb-16"
         >
           <div className="flex items-center justify-center gap-2 mb-8">
-            <Sparkles className="w-5 h-5 text-primary" />
-            <h3 className="text-xl font-semibold text-primary font-mono">
+            <Sparkles className="w-5 h-5 text-black" />
+            <h3 className="text-xl font-semibold text-black font-mono">
               {language === 'en' ? 'Core Technologies' : 'Công Nghệ Chính'}
             </h3>
-            <Sparkles className="w-5 h-5 text-primary" />
+            <Sparkles className="w-5 h-5 text-black" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {featuredTechs.map((tech, index) => {
@@ -142,15 +142,15 @@ const Skills = () => {
                         </div>
                       )}
                     </div>
-                    <span className="text-gray-300 font-mono text-sm group-hover:text-white transition-colors font-medium text-center">
+                    <span className="text-gray-700 font-mono text-sm group-hover:text-black transition-colors font-medium text-center">
                       {tech.name}
                     </span>
 
                     {/* Progress bar - only show on hover */}
                     <div className="w-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
                       <div className="flex justify-between items-center mb-1">
-                        <span className="text-xs text-gray-500 font-mono">Level</span>
-                        <span className="text-xs text-primary font-mono font-bold">{tech.level}%</span>
+                        <span className="text-xs text-black font-mono">Level</span>
+                        <span className="text-xs text-black font-mono font-bold">{tech.level}%</span>
                       </div>
                       <div className="w-full bg-gray-800/50 h-1.5 rounded-full overflow-hidden">
                         <motion.div
@@ -202,7 +202,7 @@ const Skills = () => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <Zap className="w-6 h-6 text-primary" />
+                <Zap className="w-6 h-6 text-black" />
               </motion.div>
               <h3 className="text-2xl font-bold gradient-text font-mono">
                 {t.skills.toolsTitle}
@@ -211,7 +211,7 @@ const Skills = () => {
                 animate={{ rotate: -360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <Terminal className="w-6 h-6 text-secondary" />
+                <Terminal className="w-6 h-6 text-black" />
               </motion.div>
             </div>
 
@@ -230,8 +230,8 @@ const Skills = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover/tool:opacity-20 blur-xl transition-opacity duration-300"></div>
                     <div className="relative flex items-center gap-3 px-6 py-3 glass-card rounded-xl hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
-                      <ToolIcon className="w-6 h-6 text-gray-400 group-hover/tool:text-primary transition-colors duration-300" />
-                      <span className="text-gray-300 font-mono font-medium group-hover/tool:text-white transition-colors">
+                      <ToolIcon className="w-6 h-6 text-black group-hover/tool:text-black transition-colors duration-300" />
+                      <span className="text-black font-mono font-medium group-hover/tool:text-black transition-colors">
                         {tool.name}
                       </span>
                     </div>
@@ -251,8 +251,8 @@ const Skills = () => {
           className="mt-12"
         >
           <div className="flex items-center justify-center gap-2 mb-8">
-            <Brain className="w-5 h-5 text-secondary" />
-            <h3 className="text-xl font-semibold text-secondary font-mono">
+            <Brain className="w-5 h-5 text-black" />
+            <h3 className="text-xl font-semibold text-black font-mono">
               {language === 'en' ? 'Additional Expertise' : 'Chuyên Môn Bổ Sung'}
             </h3>
           </div>
@@ -269,13 +269,13 @@ const Skills = () => {
               >
                 <div className="flex items-start gap-3">
                   <div className="mt-1">
-                    <Cpu className="w-5 h-5 text-secondary group-hover:text-primary transition-colors" />
+                    <Cpu className="w-5 h-5 text-black group-hover:text-black transition-colors" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-mono font-semibold mb-2 group-hover:text-primary transition-colors">
+                    <h4 className="text-black font-mono font-semibold mb-2 group-hover:text-gray-800 transition-colors">
                       {skill.name}
                     </h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-gray-600 text-sm leading-relaxed">
                       {skill.description}
                     </p>
                   </div>

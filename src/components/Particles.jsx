@@ -35,7 +35,7 @@ const Particles = () => {
       }
 
       draw() {
-        ctx.fillStyle = `rgba(0, 245, 212, ${this.opacity})`
+        ctx.fillStyle = `rgba(0, 0, 0, ${this.opacity * 0.3})`
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
         ctx.fill()

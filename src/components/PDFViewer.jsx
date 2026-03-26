@@ -62,10 +62,10 @@ const PDFViewer = ({ isOpen, onClose, pdfUrl, fileName }) => {
               <div className="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border-b border-primary/30">
                 <div className="flex items-center justify-between p-4">
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-1">
+                    <h3 className="text-xl font-bold text-black mb-1">
                       {language === 'vi' ? 'Hồ Sơ Cá Nhân' : 'Personal Resume'}
                     </h3>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-black">
                       {language === 'vi' ? 'Lê Quang Thành' : 'Le Quang Thanh'}
                     </p>
                   </div>
@@ -83,7 +83,7 @@ const PDFViewer = ({ isOpen, onClose, pdfUrl, fileName }) => {
                           >
                             <ZoomOut className="w-4 h-4 text-gray-300" />
                           </button>
-                          <span className="px-3 text-sm font-mono text-primary min-w-[4rem] text-center">
+                          <span className="px-3 text-sm font-mono text-black min-w-[4rem] text-center">
                             {Math.round(zoom * 100)}%
                           </span>
                           <button
@@ -98,7 +98,7 @@ const PDFViewer = ({ isOpen, onClose, pdfUrl, fileName }) => {
 
                         <button
                           onClick={handleReset}
-                          className="hidden sm:block px-3 py-2 glass-card rounded-lg hover:border-primary/50 transition-all text-xs text-gray-300 hover:text-primary"
+                          className="hidden sm:block px-3 py-2 glass-card rounded-lg hover:border-black/50 transition-all text-xs text-black hover:text-black"
                           title={language === 'vi' ? 'Đặt lại' : 'Reset zoom'}
                         >
                           {language === 'vi' ? 'Đặt lại' : 'Reset'}
@@ -184,12 +184,12 @@ const PDFViewer = ({ isOpen, onClose, pdfUrl, fileName }) => {
                     >
                       <ZoomOut className="w-5 h-5 text-gray-300" />
                     </button>
-                    <span className="px-4 py-2 glass-card rounded-lg text-sm font-mono text-primary min-w-[5rem] text-center">
+                    <span className="px-4 py-2 glass-card rounded-lg text-sm font-mono text-black min-w-[5rem] text-center">
                       {Math.round(zoom * 100)}%
                     </span>
                     <button
                       onClick={handleReset}
-                      className="px-3 py-2 glass-card rounded-lg text-xs text-gray-300"
+                      className="px-3 py-2 glass-card rounded-lg text-xs text-black"
                     >
                       {language === 'vi' ? 'Đặt lại' : 'Reset'}
                     </button>

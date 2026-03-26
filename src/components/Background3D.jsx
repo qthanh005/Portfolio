@@ -16,10 +16,10 @@ function RotatingSphere() {
   return (
     <Sphere ref={meshRef} args={[2, 32, 32]}>
       <meshStandardMaterial
-        color="#8b5cf6"
+        color="#000000"
         wireframe
         transparent
-        opacity={0.15}
+        opacity={0.05}
       />
     </Sphere>
   )

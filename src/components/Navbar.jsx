@@ -30,10 +30,10 @@ const Navbar = ({ scrolled }) => {
               <li key={link}>
                 <a
                   href={`#${linkIds[index]}`}
-                  className="relative text-gray-300 hover:text-primary transition-colors duration-300 group text-sm font-mono"
+                  className="relative text-gray-700 hover:text-black transition-colors duration-300 group text-sm font-mono"
                 >
                   {link}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-primary transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-black to-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             ))}
@@ -45,8 +45,8 @@ const Navbar = ({ scrolled }) => {
             className="flex items-center gap-2 px-3 py-2 glass-card rounded-lg hover:border-primary transition-all duration-300 group"
             aria-label="Toggle Language"
           >
-            <Languages className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" />
-            <span className="text-sm font-mono text-gray-300 group-hover:text-primary transition-colors">
+            <Languages className="w-4 h-4 text-gray-600 group-hover:text-black transition-colors" />
+            <span className="text-sm font-mono text-gray-700 group-hover:text-black transition-colors">
               {language === 'en' ? 'VI' : 'EN'}
             </span>
           </button>
