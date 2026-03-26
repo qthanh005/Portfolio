@@ -69,7 +69,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-6xl font-black font-mono mb-6 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-black font-mono mb-6 tracking-tight"
           >
             <span className="text-gray-400 font-light">&lt;</span>
             {t.services.title}{' '}
@@ -85,7 +85,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-500 max-w-2xl mx-auto text-lg mb-12"
+            className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg mb-12"
           >
             {t.services.description}
           </motion.p>
@@ -176,7 +176,7 @@ const Services = () => {
                         {pkg.originalPrice}
                       </div>
                     )}
-                    <div className={`text-5xl font-black tracking-tighter ${isHighlighted ? 'text-white' : 'text-black'}`}>
+                    <div className={`text-4xl xl:text-5xl font-black tracking-tighter ${isHighlighted ? 'text-white' : 'text-black'}`}>
                       {pkg.price}
                     </div>
                     

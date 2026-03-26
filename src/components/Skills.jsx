@@ -198,7 +198,7 @@ const Skills = () => {
           </div>
 
           {/* Add CSS for animation */}
-          <style jsx>{`
+          <style>{`
             @keyframes scroll {
               0% {
                 transform: translateX(0);
@@ -212,6 +212,11 @@ const Skills = () => {
             }
             .animate-scroll:hover {
               animation-play-state: paused;
+            }
+            @media (max-width: 768px) {
+              .animate-scroll {
+                animation-duration: 15s;
+              }
             }
           `}</style>
         </motion.div>
@@ -321,7 +326,7 @@ const Skills = () => {
           </div>
 
           {/* Add CSS for reverse animation */}
-          <style jsx>{`
+          <style>{`
             @keyframes scroll-reverse {
               0% {
                 transform: translateX(-50%);
@@ -335,6 +340,11 @@ const Skills = () => {
             }
             .animate-scroll-reverse:hover {
               animation-play-state: paused;
+            }
+            @media (max-width: 768px) {
+              .animate-scroll-reverse {
+                animation-duration: 12.5s;
+              }
             }
           `}</style>
         </motion.div>
@@ -418,7 +428,7 @@ const Skills = () => {
           </div>
 
           {/* Add CSS for slower animation */}
-          <style jsx>{`
+          <style>{`
             @keyframes scroll-slow {
               0% {
                 transform: translateX(0);
@@ -432,6 +442,11 @@ const Skills = () => {
             }
             .animate-scroll-slow:hover {
               animation-play-state: paused;
+            }
+            @media (max-width: 768px) {
+              .animate-scroll-slow {
+                animation-duration: 20s;
+              }
             }
           `}</style>
         </motion.div>

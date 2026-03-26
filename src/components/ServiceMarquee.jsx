@@ -22,8 +22,8 @@ const ServiceMarquee = () => {
   return (
     <div className="w-full py-10 overflow-hidden relative border-y border-gray-100 bg-white shadow-sm mt-8">
       {/* Fade Gradients for smooth edges */}
-      <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
       
       {/* Sliding Marquee Track */}
       <div className="flex w-max animate-slide-left space-x-6 px-3">

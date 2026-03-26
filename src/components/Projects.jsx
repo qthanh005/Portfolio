@@ -15,6 +15,7 @@ const TruyenZIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
     <span className="text-cyan-400">Z</span>
   </div>
 )
+TruyenZIcon.isCustom = true
 
 // Custom TinyChess Icon Component
 const TinyChessIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
@@ -30,6 +31,7 @@ const TinyChessIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
     <span className="text-purple-400">s</span>
   </div>
 )
+TinyChessIcon.isCustom = true
 
 // Custom StoryCrawler Icon Component
 const StoryCrawlerIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
@@ -48,6 +50,7 @@ const StoryCrawlerIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
     <span className="text-emerald-400">r</span>
   </div>
 )
+StoryCrawlerIcon.isCustom = true
 
 // Custom BankingApp Icon Component
 const BankingAppIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
@@ -64,6 +67,7 @@ const BankingAppIcon = ({ className = "w-6 h-6", textSize = "text-xl" }) => (
     <span className="text-red-500">p</span>
   </div>
 )
+BankingAppIcon.isCustom = true
 
 const Projects = () => {
   const { language } = useLanguage()
@@ -250,7 +254,11 @@ const Projects = () => {
                         whileHover={{ scale: 1, rotate: 0 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
-                        <ProjectIcon className="w-20 h-20" textSize="text-4xl" />
+                        {ProjectIcon.isCustom ? (
+                          <ProjectIcon className="w-20 h-20" textSize="text-4xl" />
+                        ) : (
+                          <ProjectIcon className="w-20 h-20 text-white" />
+                        )}
                       </motion.div>
                     </motion.div>
                   </div>

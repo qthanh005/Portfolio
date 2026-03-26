@@ -6,8 +6,10 @@ import { translations } from '../translations/translations'
 
 const FAQ = () => {
   const { language } = useLanguage()
-  const t = translations[language].faq
+  const t = translations[language]?.faq
   const [openIndex, setOpenIndex] = useState(0)
+
+  if (!t) return null;
 
   return (
     <section className="py-24 px-6 relative bg-white border-t border-gray-100">

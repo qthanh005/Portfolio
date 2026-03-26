@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { Languages, Star } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Languages, Star, Menu, X } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../translations/translations'
@@ -8,6 +9,7 @@ const Navbar = ({ scrolled }) => {
   const { language, toggleLanguage } = useLanguage()
   const t = translations[language]
   const location = useLocation()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // We exclude 'services' from here since we render it explicitly with a Star
   const navLinks = [t.nav.about, t.nav.skills, t.nav.projects, t.nav.contact]
@@ -27,7 +29,7 @@ const Navbar = ({ scrolled }) => {
           &lt;THANH/&gt;
         </Link>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
           <ul className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => {
               const path = `/#${linkIds[index]}`
@@ -74,8 +76,61 @@ const Navbar = ({ scrolled }) => {
               {language === 'en' ? 'VI' : 'EN'}
             </span>
           </button>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden flex items-center justify-center p-2 rounded-lg glass-card hover:bg-gray-100/50 transition-colors"
+            aria-label="Toggle Menu"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5 text-black" /> : <Menu className="w-5 h-5 text-black" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Nav Dropdown */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden glass-card border-t border-gray-100 overflow-hidden shadow-lg"
+          >
+            <ul className="flex flex-col py-4 px-6 space-y-2">
+              {navLinks.map((link, index) => {
+                const path = `/#${linkIds[index]}`
+                return (
+                  <li key={link}>
+                    <a
+                      href={path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg px-2 py-3 transition-colors duration-300 text-sm font-mono font-medium"
+                    >
+                      {link}
+                    </a>
+                  </li>
+                )
+              })}
+              <li className="pt-2 mt-2 border-t border-gray-100">
+                <Link
+                  to="/services"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center gap-2 px-2 py-3 rounded-lg transition-colors duration-300 text-sm font-mono font-bold ${
+                    location.pathname === '/services' ? 'bg-gray-100 text-black' : 'text-gray-700 hover:bg-gray-50 hover:text-black'
+                  }`}
+                >
+                  <Star className={`w-4 h-4 ${
+                    location.pathname === '/services' ? 'text-yellow-500 fill-yellow-500' : 'text-yellow-400'
+                  }`} />
+                  {t.nav.services}
+                </Link>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   )
 }
