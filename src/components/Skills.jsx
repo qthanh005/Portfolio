@@ -58,11 +58,11 @@ const Skills = () => {
   ]
 
   const tools = [
-    { name: 'Git', icon: SiGit },
-    { name: 'Vercel', icon: SiVercel },
-    { name: 'Docker', icon: SiDocker },
-    { name: 'RESTful APIs', icon: Network },
-    { name: 'Unity', icon: SiUnity }
+    { name: 'Git', icon: SiGit, color: 'text-orange-600' },
+    { name: 'Vercel', icon: SiVercel, color: 'text-black' },
+    { name: 'Docker', icon: SiDocker, color: 'text-blue-500' },
+    { name: 'RESTful APIs', icon: Network, color: 'text-green-600' },
+    { name: 'Unity', icon: SiUnity, color: 'text-gray-700' }
   ]
 
   const additionalSkills = t.skills.additionalSkills
@@ -258,7 +258,7 @@ const Skills = () => {
                     className="flex-shrink-0 glass-card px-6 py-4 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer"
                   >
                     <div className="flex items-center gap-3 min-w-[140px]">
-                      <ToolIcon className="w-8 h-8 text-black group-hover:scale-110 transition-transform duration-300" />
+                      <ToolIcon className={`w-8 h-8 ${tool.color} group-hover:scale-110 transition-transform duration-300`} />
                       <span className="text-black font-mono font-medium whitespace-nowrap">
                         {tool.name}
                       </span>
@@ -275,7 +275,7 @@ const Skills = () => {
                     className="flex-shrink-0 glass-card px-6 py-4 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer"
                   >
                     <div className="flex items-center gap-3 min-w-[140px]">
-                      <ToolIcon className="w-8 h-8 text-black group-hover:scale-110 transition-transform duration-300" />
+                      <ToolIcon className={`w-8 h-8 ${tool.color} group-hover:scale-110 transition-transform duration-300`} />
                       <span className="text-black font-mono font-medium whitespace-nowrap">
                         {tool.name}
                       </span>
@@ -292,7 +292,7 @@ const Skills = () => {
                     className="flex-shrink-0 glass-card px-6 py-4 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer"
                   >
                     <div className="flex items-center gap-3 min-w-[140px]">
-                      <ToolIcon className="w-8 h-8 text-black group-hover:scale-110 transition-transform duration-300" />
+                      <ToolIcon className={`w-8 h-8 ${tool.color} group-hover:scale-110 transition-transform duration-300`} />
                       <span className="text-black font-mono font-medium whitespace-nowrap">
                         {tool.name}
                       </span>
@@ -309,7 +309,7 @@ const Skills = () => {
                     className="flex-shrink-0 glass-card px-6 py-4 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer"
                   >
                     <div className="flex items-center gap-3 min-w-[140px]">
-                      <ToolIcon className="w-8 h-8 text-black group-hover:scale-110 transition-transform duration-300" />
+                      <ToolIcon className={`w-8 h-8 ${tool.color} group-hover:scale-110 transition-transform duration-300`} />
                       <span className="text-black font-mono font-medium whitespace-nowrap">
                         {tool.name}
                       </span>

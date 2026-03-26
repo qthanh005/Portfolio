@@ -80,7 +80,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="relative h-[500px] perspective-1000"
+            className="relative h-[600px] perspective-1000"
           >
             <motion.div
               className="relative w-full h-full preserve-3d cursor-pointer"
@@ -346,8 +346,8 @@ const About = () => {
                   <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0">
                     <div className="glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-black to-gray-600 flex items-center justify-center">
-                          <Briefcase className="w-6 h-6 text-white" />
+                        <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center">
+                          <Briefcase className="w-6 h-6 text-black" />
                         </div>
                         <div>
                           <h4 className="text-xl font-bold text-black font-mono">
@@ -432,8 +432,8 @@ const About = () => {
                   <div className="md:w-1/2 md:pl-12 mb-8 md:mb-0">
                     <div className="glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-600 to-black flex items-center justify-center">
-                          <Zap className="w-6 h-6 text-white" fill="currentColor" />
+                        <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center">
+                          <Zap className="w-6 h-6 text-black" fill="currentColor" />
                         </div>
                         <h5 className="text-lg font-bold text-black font-mono">
                           {language === 'en' ? 'Technologies & Tools' : 'Công Nghệ & Công Cụ'}
@@ -513,8 +513,8 @@ const About = () => {
                   <div className="md:w-1/2 md:pr-12">
                     <div className="glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-black to-gray-700 flex items-center justify-center">
-                          <Terminal className="w-6 h-6 text-white" />
+                        <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center">
+                          <Terminal className="w-6 h-6 text-black" />
                         </div>
                         <h5 className="text-lg font-bold text-black font-mono">
                           {language === 'en' ? 'Additional Tools' : 'Công Cụ Bổ Sung'}

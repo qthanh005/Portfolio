@@ -78,7 +78,8 @@ const Projects = () => {
       github: '#',
       demo: 'https://www.youtube.com/watch?v=XbJqy5R20GI',
       icon: TruyenZIcon,
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-blue-500 to-cyan-500',
+      size: 'large' // Featured project
     },
     {
       title: t.projects.projectList.ml.title,
@@ -88,7 +89,8 @@ const Projects = () => {
       github: '#',
       demo: 'https://youtu.be/Yfp6Zq55slg',
       icon: Brain,
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-purple-500 to-pink-500',
+      size: 'medium'
     },
     {
       title: t.projects.projectList.microservices.title,
@@ -98,7 +100,8 @@ const Projects = () => {
       github: '#',
       demo: 'https://www.youtube.com/watch?v=Kd5_8eiA2Zo',
       icon: StoryCrawlerIcon,
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-green-500 to-emerald-500',
+      size: 'medium'
     },
     {
       title: t.projects.projectList.desktop.title,
@@ -108,373 +111,264 @@ const Projects = () => {
       github: '#',
       demo: 'https://drive.google.com/drive/my-drive?hl=vi',
       icon: BankingAppIcon,
-      color: 'from-orange-500 to-red-500'
+      color: 'from-orange-500 to-red-500',
+      size: 'large' // Featured project
     }
   ]
 
   return (
-    <section id="projects" className="py-12 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
+    <section id="projects" className="py-20 px-6 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-40 -right-40 w-80 h-80 bg-black/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ 
+            rotate: [360, 0],
+            scale: [1, 1.3, 1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-gray-600/5 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header with Animation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-6"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-3 font-mono">
-            <span className="text-gray-600">&gt;</span> {t.projects.title} <span className="gradient-text">{t.projects.titleHighlight}</span>
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-6"
+          >
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            >
+              <Code2 className="w-4 h-4 text-black" />
+            </motion.div>
+            <span className="text-xs font-mono text-black uppercase tracking-wider">
+              {language === 'en' ? 'Portfolio Showcase' : 'Danh Mục Dự Án'}
+            </span>
+          </motion.div>
+
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 font-mono">
+            <span className="text-gray-600">&gt;</span> {t.projects.title}{' '}
+            <span className="gradient-text">{t.projects.titleHighlight}</span>
           </h2>
-          <div className="w-16 h-0.5 bg-black mx-auto"></div>
+          
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="h-1 bg-black mx-auto rounded-full"
+          />
         </motion.div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 lg:gap-4">
-          {/* Project 2 - TinyChess Hero Card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0 }}
-            className="md:col-span-8"
-          >
-            <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group flex flex-col">
-              {/* Video Section */}
-              <div className="relative flex-1 min-h-[300px] md:min-h-[350px] lg:min-h-[450px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 overflow-hidden">
-                <iframe
-                  src={projects[1].image}
-                  title={projects[1].title}
-                  className="w-full h-full border-0 group-hover:scale-105 transition-transform duration-700"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  onError={(e) => {
-                    e.target.style.display = 'none'
-                    e.target.nextSibling.style.display = 'flex'
-                  }}
-                />
-                <div
-                  className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-500/20 to-pink-500/20"
-                  style={{ display: 'none' }}
-                >
-                  <TinyChessIcon className="w-20 h-20" textSize="text-3xl" />
-                </div>
+        {/* Bento Grid Layout - Asymmetric */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+          {projects.map((project, index) => {
+            const ProjectIcon = project.icon
+            const isLarge = project.size === 'large'
+            
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                className={`group relative ${
+                  isLarge ? 'md:col-span-7' : 'md:col-span-5'
+                }`}
+              >
+                <div className="relative h-full min-h-[500px] glass-card rounded-3xl overflow-hidden border border-black/10 hover:border-black/30 transition-all duration-700 hover:shadow-2xl">
+                  {/* Decorative Corner Elements */}
+                  <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-black/20 rounded-tl-3xl z-10"></div>
+                  <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-black/20 rounded-br-3xl z-10"></div>
 
-                {/* Top Icon */}
-                <div className="absolute top-4 left-4">
-                  <div className="w-fit p-2 rounded-lg">
-                    <TinyChessIcon className="w-8 h-8" textSize="text-sm" />
+                  {/* Project Number - Floating */}
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 200 }}
+                    className="absolute top-6 right-6 z-20"
+                  >
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-black blur-xl opacity-50"></div>
+                      <div className="relative w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center font-mono font-bold text-2xl shadow-2xl border-2 border-white/20">
+                        0{index + 1}
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Image/Video Section with Parallax Effect */}
+                  <div className="relative h-64 overflow-hidden">
+                    {project.image.includes('youtube.com/embed') ? (
+                      <iframe
+                        src={project.image}
+                        title={project.title}
+                        className="w-full h-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <motion.img
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.6 }}
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
+                    
+                    {/* Hover Overlay with Icon */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      className="absolute inset-0 bg-black/80 flex items-center justify-center backdrop-blur-sm"
+                    >
+                      <motion.div
+                        initial={{ scale: 0, rotate: -180 }}
+                        whileHover={{ scale: 1, rotate: 0 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <ProjectIcon className="w-20 h-20" textSize="text-4xl" />
+                      </motion.div>
+                    </motion.div>
                   </div>
-                </div>
-              </div>
 
-              {/* Content Section */}
-              <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm p-4">
-                <div className="flex items-start gap-3">
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-bold text-black mb-2 font-mono">
-                      {projects[1].title}
-                    </h3>
-                    <p className="text-black text-sm mb-3 line-clamp-2">
-                      {projects[1].description}
+                  {/* Content Section */}
+                  <div className="p-8 relative">
+                    {/* Title with Underline Animation */}
+                    <div className="mb-4">
+                      <h3 className="text-2xl md:text-3xl font-bold text-black mb-2 font-mono group-hover:text-gray-800 transition-colors">
+                        {project.title}
+                      </h3>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '100%' }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.15 + 0.5, duration: 0.8 }}
+                        className="h-0.5 bg-gradient-to-r from-black via-gray-600 to-transparent"
+                      />
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-700 leading-relaxed mb-6 min-h-[60px]">
+                      {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {projects[1].tags.slice(0, 4).map((tag) => (
-                        <span
+
+                    {/* Tags with Stagger Animation */}
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.tags.map((tag, tagIndex) => (
+                        <motion.span
                           key={tag}
-                          className="px-2 py-1 text-xs font-mono text-purple-400 bg-purple-500/20 rounded border border-purple-500/30"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.15 + 0.6 + (tagIndex * 0.05) }}
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          className="px-4 py-2 text-xs font-mono text-black bg-black/5 rounded-xl border border-black/10 hover:border-black/30 hover:bg-black/10 transition-all cursor-default"
                         >
                           {tag}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
-                    <div className="flex gap-3">
-                      <a
-                        href={projects[1].github}
-                        className="flex items-center gap-2 px-3 py-2 text-sm font-mono text-white border border-white/30 rounded-lg hover:bg-white/10 transition-colors"
+
+                    {/* Action Buttons with Magnetic Effect */}
+                    <div className="flex gap-4">
+                      <motion.a
+                        href={project.github}
+                        whileHover={{ scale: 1.05, x: -5 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1 flex items-center justify-center gap-2 px-6 py-4 text-sm font-mono text-black border-2 border-black/20 rounded-2xl hover:bg-black hover:text-white hover:border-black transition-all duration-300 group/btn"
                       >
-                        <Github className="w-4 h-4" />
-                        Code
-                      </a>
-                      <a
-                        href={projects[1].demo}
-                        className="flex items-center gap-2 px-3 py-2 text-sm font-mono bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:opacity-90 transition-opacity"
+                        <Github className="w-5 h-5 group-hover/btn:rotate-12 transition-transform" />
+                        <span className="font-semibold">Code</span>
+                      </motion.a>
+                      <motion.a
+                        href={project.demo}
+                        whileHover={{ scale: 1.05, x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1 flex items-center justify-center gap-2 px-6 py-4 text-sm font-mono bg-black text-white rounded-2xl hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-2xl group/btn"
                       >
-                        <Youtube className="w-4 h-4" />
-                        Demo
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Project 1 - TruyenZ Comic Website */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="md:col-span-4"
-          >
-            <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group flex flex-col">
-              {/* Image Section */}
-              <div
-                className="relative flex-1 min-h-[300px] md:min-h-[350px] lg:min-h-[450px] bg-gradient-to-br from-blue-500/20 to-cyan-500/20 overflow-hidden"
-                style={{
-                  backgroundImage: `url(${projects[0].image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center 30%',
-                  backgroundRepeat: 'no-repeat'
-                }}
-              >
-                {/* Fallback for when image fails to load */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center opacity-0 group-[.image-error]:opacity-100">
-                  <TruyenZIcon className="w-20 h-20" textSize="text-3xl" />
-                </div>
-
-                {/* Top Icon */}
-                <div className="absolute top-4 left-4">
-                  <div className="w-fit p-2 rounded-lg">
-                    <TruyenZIcon className="w-6 h-6" textSize="text-sm" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Content Section */}
-              <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm p-4">
-                <h3 className="text-lg font-bold text-black mb-2 font-mono">
-                  {projects[0].title}
-                </h3>
-                <p className="text-black text-sm mb-3 line-clamp-3">
-                  {projects[0].description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {projects[0].tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs font-mono text-cyan-400 bg-cyan-500/20 rounded border border-cyan-500/30"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-2">
-                  <a
-                    href={projects[0].github}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-mono text-white border border-white/30 rounded-lg hover:bg-white/10 transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                    Code
-                  </a>
-                  <a
-                    href={projects[0].demo}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-mono bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:opacity-90 transition-opacity"
-                  >
-                    <Youtube className="w-4 h-4" />
-                    Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Project 3 - StoryCrawler Square Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="col-span-1 md:col-span-6 lg:col-span-4"
-          >
-            <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group">
-              <div className="relative aspect-square bg-gradient-to-br from-green-500/20 to-emerald-500/20 overflow-hidden">
-                <img
-                  src={projects[2].image}
-                  alt={projects[2].title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    e.target.style.display = 'none'
-                    e.target.nextSibling.style.display = 'flex'
-                  }}
-                />
-                <div
-                  className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-green-500/20 to-emerald-500/20"
-                  style={{ display: 'none' }}
-                >
-                  <StoryCrawlerIcon className="w-16 h-16" textSize="text-2xl" />
-                </div>
-
-                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors"></div>
-
-                {/* Icon */}
-                <div className="absolute top-4 left-4 p-2 rounded-lg">
-                  <StoryCrawlerIcon className="w-6 h-6" textSize="text-xs" />
-                </div>
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                  <h3 className="text-base font-bold text-black mb-2 font-mono">
-                    {projects[2].title}
-                  </h3>
-                  <div className="flex gap-2">
-                    <a
-                      href={projects[2].github}
-                      className="flex-1 flex items-center justify-center gap-1 py-2 text-xs font-mono text-white border border-white/30 rounded hover:bg-white/10 transition-colors"
-                    >
-                      <Github className="w-3 h-3" />
-                      Code
-                    </a>
-                    <a
-                      href={projects[2].demo}
-                      className="flex-1 flex items-center justify-center gap-1 py-2 text-xs font-mono bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded hover:opacity-90 transition-opacity"
-                    >
-                      <Youtube className="w-3 h-3" />
-                      Demo
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Project 4 - BankingApp Detailed Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="col-span-1 md:col-span-6 lg:col-span-8"
-          >
-            <div className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 transition-all duration-300 h-full group">
-              <div className="flex flex-col lg:flex-row h-full overflow-hidden">
-                {/* Image */}
-                <div className="relative lg:w-2/5 h-48 lg:h-full bg-gradient-to-br from-orange-500/20 to-red-500/20 overflow-hidden">
-                  <img
-                    src={projects[3].image}
-                    alt={projects[3].title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    onError={(e) => {
-                      e.target.style.display = 'none'
-                      e.target.nextSibling.style.display = 'flex'
-                    }}
-                  />
-                  <div
-                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500/20 to-red-500/20"
-                    style={{ display: 'none' }}
-                  >
-                    <BankingAppIcon className="w-16 h-16" textSize="text-2xl" />
-                  </div>
-
-                  {/* Top Icon */}
-                  <div className="absolute top-4 left-4">
-                    <div className="p-2 rounded-lg">
-                      <BankingAppIcon className="w-6 h-6" textSize="text-xs" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 p-4 lg:p-6 flex flex-col justify-between bg-gradient-to-r from-gray-900/50 to-gray-800/50">
-                  <div>
-                    <div className="flex items-start gap-3 mb-4">
-                      <div className="p-2 rounded-lg flex-shrink-0">
-                        <BankingAppIcon className="w-5 h-5" textSize="text-[10px]" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg lg:text-xl font-bold text-black mb-3 font-mono">
-                          {projects[3].title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-black text-sm lg:text-base mb-4 line-clamp-3 lg:line-clamp-4">
-                          {projects[3].description}
-                        </p>
-
-                        {/* Features List */}
-                        <div className="mb-4">
-                          <h4 className="text-orange-400 font-bold text-sm mb-2 font-mono">Key Features:</h4>
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 text-xs lg:text-sm text-black">
-                            <div className="flex items-center gap-2">
-                              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
-                              <span>Biometric Authentication</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
-                              <span>QR Code Payments</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
-                              <span>Real-time Notifications</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
-                              <span>Multi-layer Security</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Tags */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {projects[3].tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-1 text-xs font-mono text-orange-400 bg-orange-500/20 rounded border border-orange-500/30"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                        <span className="font-semibold">Demo</span>
+                        <ExternalLink className="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                      </motion.a>
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
-                    <a
-                      href={projects[3].github}
-                      className="flex items-center gap-2 px-4 py-2 text-sm font-mono text-black border border-black/30 rounded-lg hover:bg-black/10 transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                      Source Code
-                    </a>
-                    <a
-                      href={projects[3].demo}
-                      className="flex items-center gap-2 px-4 py-2 text-sm font-mono bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:opacity-90 transition-opacity"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
-                    </a>
+                  {/* Decorative Dots Pattern */}
+                  <div className="absolute bottom-4 left-4 flex gap-1 opacity-20">
+                    {[...Array(5)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.15 + 0.8 + (i * 0.05) }}
+                        className="w-1.5 h-1.5 rounded-full bg-black"
+                      />
+                    ))}
                   </div>
                 </div>
-              </div>
-            </div>
-          </motion.div>
+              </motion.div>
+            )
+          })}
         </div>
 
-        {/* View All */}
+        {/* View All Button with Pulse Effect */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center mt-12 mb-8"
+          transition={{ delay: 0.8 }}
+          className="text-center"
         >
-          <a
+          <motion.a
             href="https://github.com/qthanh2005"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 text-black border-2 border-black/30 rounded-lg hover:bg-black/10 transition-colors font-mono group text-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-mono font-semibold rounded-2xl hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl group relative overflow-hidden"
           >
-            <Github className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-            {t.projects.viewAllGithub}
+            {/* Animated Background */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black"
+              initial={{ x: '-100%' }}
+              whileHover={{ x: '100%' }}
+              transition={{ duration: 0.6 }}
+            />
+            
+            <Github className="w-6 h-6 group-hover:rotate-12 transition-transform relative z-10" />
+            <span className="relative z-10">{t.projects.viewAllGithub}</span>
             <motion.span
-              animate={{ x: [0, 3, 0] }}
+              animate={{ x: [0, 5, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
-              className="text-primary"
+              className="relative z-10"
             >
               →
             </motion.span>
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

@@ -137,21 +137,21 @@ const Hero = () => {
               >
                 <a
                   href="#projects"
-                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 flex items-center gap-2"
+                  className="px-6 py-3 glass-card text-black font-semibold rounded-lg border-2 border-black/10 hover:border-black/30 transition-all duration-300 flex items-center gap-2"
                 >
                   <Code2 className="w-5 h-5" />
                   {t.hero.viewProjects}
                 </a>
                 <a
                   href="#contact"
-                  className="px-6 py-3 glass-card text-black font-semibold rounded-lg hover:border-black transition-all duration-300 flex items-center gap-2"
+                  className="px-6 py-3 glass-card text-black font-semibold rounded-lg border-2 border-black/10 hover:border-black/30 transition-all duration-300 flex items-center gap-2"
                 >
                   <Mail className="w-5 h-5" />
                   {t.hero.getInTouch}
                 </a>
                 <button
                   onClick={() => setIsPDFOpen(true)}
-                  className="px-6 py-3 glass-card text-black font-semibold rounded-lg hover:border-gray-600 transition-all duration-300 flex items-center gap-2"
+                  className="px-6 py-3 bg-gradient-to-r from-blue-400 to-cyan-400 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-400/50 transition-all duration-300 flex items-center gap-2"
                 >
                   <Download className="w-5 h-5" />
                   {t.hero.resume}
