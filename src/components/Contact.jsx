@@ -250,11 +250,11 @@ const Contact = () => {
 
                 <div className="relative z-10">
                   <motion.div
-                    className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${contact.gradient} flex items-center justify-center shadow-xl`}
+                    className="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center"
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <IconComponent className="w-8 h-8 text-white" />
+                    <IconComponent className="w-8 h-8 text-black" />
                   </motion.div>
 
                   <h3 className="text-xl font-bold text-black mb-3 font-mono text-center">
@@ -289,11 +289,11 @@ const Contact = () => {
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-8">
                   <motion.div
-                    className="w-10 h-10 bg-black rounded-xl flex items-center justify-center"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <Sparkles className="w-5 h-5 text-white" />
+                    <Sparkles className="w-5 h-5 text-black" />
                   </motion.div>
                   <h3 className="text-2xl font-bold font-mono text-black">
                     {t.contact.info.title}
@@ -339,11 +339,11 @@ const Contact = () => {
                           className="flex items-start gap-4 p-5 glass-card rounded-2xl border border-black/10 hover:border-black/30 transition-all duration-300"
                         >
                           <motion.div
-                            className={`w-14 h-14 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}
+                            className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             transition={{ type: "spring", stiffness: 300 }}
                           >
-                            <item.icon className="w-7 h-7 text-white" />
+                            <item.icon className="w-7 h-7 text-black" />
                           </motion.div>
                           <div className="flex-1 min-w-0">
                             <p className="text-gray-600 text-xs font-mono uppercase tracking-wider mb-1">
@@ -358,11 +358,11 @@ const Contact = () => {
                       ) : (
                         <div className="flex items-start gap-4 p-5 glass-card rounded-2xl border border-black/10">
                           <motion.div
-                            className={`w-14 h-14 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}
+                            className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             transition={{ type: "spring", stiffness: 300 }}
                           >
-                            <item.icon className="w-7 h-7 text-white" />
+                            <item.icon className="w-7 h-7 text-black" />
                           </motion.div>
                           <div className="flex-1 min-w-0">
                             <p className="text-gray-600 text-xs font-mono uppercase tracking-wider mb-1">
@@ -406,11 +406,11 @@ const Contact = () => {
                       className="flex items-center gap-3 p-4 glass-card rounded-2xl border border-black/10 hover:border-black/30 transition-all duration-300 group/social"
                     >
                       <motion.div
-                        className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0"
+                        className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                         whileHover={{ rotate: 360 }}
                         transition={{ duration: 0.6 }}
                       >
-                        <ContactIcon className="w-6 h-6 text-white" />
+                        <ContactIcon className="w-6 h-6 text-black" />
                       </motion.div>
                       <div className="flex-1 min-w-0">
                         <p className="text-black text-sm font-semibold">{contact.name}</p>
@@ -467,11 +467,11 @@ const Contact = () => {
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-3">
                     <motion.div
-                      className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center shadow-xl"
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl"
                       whileHover={{ rotate: [0, -10, 10, 0] }}
                       transition={{ duration: 0.5 }}
                     >
-                      <MessageSquare className="w-6 h-6 text-white" />
+                      <MessageSquare className="w-6 h-6 text-black" />
                     </motion.div>
                     <div>
                       <h3 className="text-xl font-bold font-mono text-black">

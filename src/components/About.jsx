@@ -90,8 +90,8 @@ const About = () => {
             >
               {/* Front Side - Profile Information */}
               <div
-                className="absolute inset-0 w-full h-full backface-hidden glass-card p-8 rounded-lg hover:shadow-2xl hover:shadow-secondary/20 transition-all duration-500"
-                style={{ backfaceVisibility: "hidden" }}
+                className="absolute inset-0 w-full h-full backface-hidden bg-white p-8 rounded-lg border-2 border-black hover:shadow-2xl hover:shadow-black/20 transition-all duration-500"
+                style={{ backfaceVisibility: "hidden", backgroundColor: "#FFFFFF" }}
               >
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-2xl font-semibold text-black font-mono">
@@ -99,10 +99,10 @@ const About = () => {
                   </h3>
                   <button
                     onClick={() => setIsFlipped(!isFlipped)}
-                    className="p-2 hover:bg-primary/10 rounded-lg transition-colors duration-300 group"
+                    className="p-2 hover:bg-black/10 rounded-lg transition-colors duration-300 group"
                     aria-label="Flip card to see photo"
                   >
-                    <RotateCcw className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+                    <RotateCcw className="w-5 h-5 text-black group-hover:text-black transition-colors" />
                   </button>
                 </div>
 
@@ -346,7 +346,7 @@ const About = () => {
                   <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0">
                     <div className="glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center border-2 border-black">
                           <Briefcase className="w-6 h-6 text-black" />
                         </div>
                         <div>
@@ -432,7 +432,7 @@ const About = () => {
                   <div className="md:w-1/2 md:pl-12 mb-8 md:mb-0">
                     <div className="glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center border-2 border-black">
                           <Zap className="w-6 h-6 text-black" fill="currentColor" />
                         </div>
                         <h5 className="text-lg font-bold text-black font-mono">
@@ -513,7 +513,7 @@ const About = () => {
                   <div className="md:w-1/2 md:pr-12">
                     <div className="glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center border-2 border-black">
                           <Terminal className="w-6 h-6 text-black" />
                         </div>
                         <h5 className="text-lg font-bold text-black font-mono">
