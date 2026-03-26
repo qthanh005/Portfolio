@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import {
   Code2, Database, Cloud, Cpu, Network, Brain,
-  Server, Terminal, Zap, Sparkles, FileCode, Palette, Coffee
+  Server, Terminal, Zap, Sparkles, FileCode, Palette, Coffee,
+  Globe, Workflow, Boxes, FileSpreadsheet, Briefcase
 } from 'lucide-react'
 import {
   SiJavascript,
@@ -65,6 +66,15 @@ const Skills = () => {
   ]
 
   const additionalSkills = t.skills.additionalSkills
+
+  // Icons for each additional skill
+  const skillIcons = [
+    { icon: Globe },      // Web Crawling
+    { icon: Workflow },   // Automation
+    { icon: Boxes },      // System Design
+    { icon: FileSpreadsheet }, // Data Processing
+    { icon: Briefcase }   // Business Analysis
+  ]
 
   return (
     <section id="skills" className="py-20 px-6 relative">
@@ -329,13 +339,13 @@ const Skills = () => {
           `}</style>
         </motion.div>
 
-        {/* Additional Skills Section */}
+        {/* Additional Skills Section - Infinite Scroll */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-12"
+          className="mt-12 overflow-hidden"
         >
           <div className="flex items-center justify-center gap-2 mb-8">
             <Brain className="w-5 h-5 text-black" />
@@ -344,32 +354,86 @@ const Skills = () => {
             </h3>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {additionalSkills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card p-5 rounded-xl hover:border-secondary/50 transition-all duration-300 group"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="mt-1">
-                    <Cpu className="w-5 h-5 text-black group-hover:text-black transition-colors" />
+          {/* Infinite Scroll Container */}
+          <div className="relative">
+            {/* Gradient overlays for fade effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+            {/* Scrolling content - Same direction as Core Technologies */}
+            <div className="flex gap-4 animate-scroll-slow">
+              {/* First set of skills */}
+              {additionalSkills.map((skill, index) => {
+                const SkillIcon = skillIcons[index]?.icon || Cpu
+                return (
+                  <div
+                    key={`skill-1-${index}`}
+                    className="flex-shrink-0 glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer min-w-[320px] max-w-[320px]"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-black/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-black/10">
+                          <SkillIcon className="w-5 h-5 text-black" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-black font-mono font-semibold mb-2 group-hover:text-gray-800 transition-colors">
+                          {skill.name}
+                        </h4>
+                        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                          {skill.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-black font-mono font-semibold mb-2 group-hover:text-gray-800 transition-colors">
-                      {skill.name}
-                    </h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {skill.description}
-                    </p>
+                )
+              })}
+              {/* Duplicate set for seamless loop */}
+              {additionalSkills.map((skill, index) => {
+                const SkillIcon = skillIcons[index]?.icon || Cpu
+                return (
+                  <div
+                    key={`skill-2-${index}`}
+                    className="flex-shrink-0 glass-card p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 hover:shadow-xl group cursor-pointer min-w-[320px] max-w-[320px]"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-black/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-black/10">
+                          <SkillIcon className="w-5 h-5 text-black" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-black font-mono font-semibold mb-2 group-hover:text-gray-800 transition-colors">
+                          {skill.name}
+                        </h4>
+                        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                          {skill.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                )
+              })}
+            </div>
           </div>
+
+          {/* Add CSS for slower animation */}
+          <style jsx>{`
+            @keyframes scroll-slow {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+            .animate-scroll-slow {
+              animation: scroll-slow 40s linear infinite;
+            }
+            .animate-scroll-slow:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
         </motion.div>
       </div>
     </section>
